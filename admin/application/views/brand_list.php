@@ -15,7 +15,7 @@
 <div class="cat_menu"><span><a href="<?php echo site_url('brand/add');?>">==>添加品牌</a></span></div>
 <form method="post" action="" name="listForm">
 	<div class="list-div">
-		<table width="98%" border="0" bordercolor="#FFFF99" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px" >
+		<table width="98%" border="0" bordercolor="#FFFF99" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 		    <tbody>
 		<tr bgcolor="#E7E7E7">
 			<th>品牌名称</th>

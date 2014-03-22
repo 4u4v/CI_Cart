@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50535
 File Encoding         : 65001
 
-Date: 2014-04-24 15:42:48
+Date: 2014-04-24 18:08:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `mc_article` (
   `content` text,
   `add_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_article
@@ -39,6 +39,10 @@ INSERT INTO `mc_article` VALUES ('5', '标题05', '水木', '5', '这里是测�
 INSERT INTO `mc_article` VALUES ('8', '标题08', '作者08', '1', '这里是测试内容08。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 \r\n这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 ', '2014-04-09 15:38:02');
 INSERT INTO `mc_article` VALUES ('9', '标题09', '作者09', '2', '这里是测试内容09。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 \r\n这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 ', '2014-04-09 15:47:32');
 INSERT INTO `mc_article` VALUES ('11', '测试标题', '测试者', '3', '<p>\r\n	这里是测试文章内容。。。<a href=\"http://www.4u4v.net\">这里是测试文章内容</a>。。。这里是测试文章内容。。。这里是测试文章内容。。。</p>\r\n<p>\r\n	<span style=\"color: rgb(255, 0, 0);\">这里是测试文章内容。。。这里是测试文章内容。。。这里是测试文章内容。。。这里是测试文章内容。。。</span></p>\r\n<p>\r\n	<strong>这里是测试文章内容。。。这里是测试文章内容。。。这里是测试文章内容。。。这里是测试文章内容。。。</strong></p>\r\n', '2014-04-23 17:55:33');
+INSERT INTO `mc_article` VALUES ('12', '测试标题12', '水木', '3', '<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n', '2014-04-24 16:59:57');
+INSERT INTO `mc_article` VALUES ('13', '测试标题13', '作者13', '3', '<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n', '2014-04-24 17:00:27');
+INSERT INTO `mc_article` VALUES ('14', '测试标题14', '水木', '5', '<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>', '2014-04-24 17:00:56');
+INSERT INTO `mc_article` VALUES ('15', '测试标题15', '作者15', '5', '<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n', '2014-04-24 17:01:24');
 
 -- ----------------------------
 -- Table structure for mc_art_cat
@@ -133,6 +137,28 @@ INSERT INTO `mc_category` VALUES ('9', '分类目录8', '3', '                  
 INSERT INTO `mc_category` VALUES ('13', '分类目录9', '12', '', '50', '', '1');
 INSERT INTO `mc_category` VALUES ('11', '分类目录111', '2', '           分类描述          ', '50', '0', '1');
 INSERT INTO `mc_category` VALUES ('12', '分类目录四', '0', '', '50', '', '1');
+
+-- ----------------------------
+-- Table structure for mc_goods_type
+-- ----------------------------
+DROP TABLE IF EXISTS `mc_goods_type`;
+CREATE TABLE `mc_goods_type` (
+  `type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT '商品类型ID',
+  `type_name` varchar(50) NOT NULL DEFAULT '' COMMENT '商品类型名称',
+  PRIMARY KEY (`type_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of mc_goods_type
+-- ----------------------------
+INSERT INTO `mc_goods_type` VALUES ('1', '手机');
+INSERT INTO `mc_goods_type` VALUES ('2', '配件');
+INSERT INTO `mc_goods_type` VALUES ('3', '电脑');
+INSERT INTO `mc_goods_type` VALUES ('4', '数码相机');
+INSERT INTO `mc_goods_type` VALUES ('5', '家电');
+INSERT INTO `mc_goods_type` VALUES ('6', '鞋服');
+INSERT INTO `mc_goods_type` VALUES ('7', '食品');
+INSERT INTO `mc_goods_type` VALUES ('8', '家具');
 
 -- ----------------------------
 -- Table structure for mc_manager

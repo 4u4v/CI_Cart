@@ -17,9 +17,9 @@
 <!-- start goods type list -->
 <div class="list-div" id="listDiv">
 
-	<table width="100%" cellpadding="3" cellspacing="1" id="listTable">
+	<table width="98%" border="0" bordercolor="#FFFF99" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 		<tbody>
-			<tr>
+			<tr bgcolor="#E7E7E7">
 				<th>商品类型名称</th>
 				<th>属性分组</th>
 				<th>属性数</th>
@@ -27,7 +27,7 @@
 				<th>操作</th>
 			</tr>
       <?php foreach($goodstypes as $goodstype) :?>
-			<tr>
+			<tr bgcolor="#FFFFFF" onmousemove="javascript:this.bgColor='#FCFDEE';" onmouseout="javascript:this.bgColor='#FFFFFF';">
 				<td class="first-cell"><span onclick="javascript:listTable.edit(this, 'edit_type_name', 1)"><?php echo $goodstype['type_name']?></span></td>
 				<td></td>
 				<td align="right">12</td>
@@ -42,10 +42,7 @@
     
       <tr>
       <td align="right" nowrap="true" colspan="6" style="background-color: rgb(255, 255, 255);">
-            
-            <div id="turn-page">
             <?php echo $pageinfo;?>
-      		</div>
       </td>
     </tr>
   </tbody></table>
