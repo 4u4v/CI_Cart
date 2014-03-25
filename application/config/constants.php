@@ -37,5 +37,21 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 
+/* 订单状态 */
+define('OS_UNCONFIRMED',            1); // 未确认
+define('OS_CONFIRMED',              2); // 已确认
+define('OS_PAID',                   3); // 已付款
+define('OS_CONFIRMED_PAID',         4); // 确认付款
+define('OS_CONFIRMED_ARRIVED_PAID', 5); // 确认货到已付款
+define('OS_DELIVERED',              6); // 已发货
+define('OS_CONFIRMED_RECEIVED',     7); // 收货并确认
+define('OS_RECEIVED_PAID',          8); // 收货并付款
+define('OS_FINISHED',               9); // 订单完成
+define('OS_CANCEL',                10); // 已取消
+define('OS_REFUND',                11); // 已退款
+define('OS_RETURNED',              12); // 已退货
+
+
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
