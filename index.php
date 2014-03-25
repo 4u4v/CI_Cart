@@ -175,6 +175,8 @@ if (defined('ENVIRONMENT'))
 	// Name of the "system folder"
 	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
 
+//上传文件库的路径
+define('UPLOADS', './uploads'.'/');
 
 	// The path to the "application" folder
 	if (is_dir($application_folder))
