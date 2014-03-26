@@ -17,9 +17,22 @@ class home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct()
+	{
+		parent::__construct();
+	}
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$data=array();
+		$data['title']="网站标题";
+		
+		$data['body'] = "<p>Body内容。。。</p>";
+		
+		$data['footer']="";
+		
+		$this->load->view('home', $data);
+		
+		//$this->load->view('welcome_message');
 	}
 }
 
