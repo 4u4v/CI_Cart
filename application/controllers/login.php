@@ -14,4 +14,14 @@ class login extends CI_Controller {
 		
 		$this->load->view('login', $data);
 	}
+	
+	/*
+	 * 保存注册信息
+	 */
+	function save() {
+		$user_name = $this->input->post('user_name');
+		$password = $this->input->post('password');
+		$email = $this->input->post('email');
+		
+	}
 }
