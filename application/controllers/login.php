@@ -16,7 +16,7 @@ class login extends CI_Controller {
 	}
 	
 	/*
-	 * 保存注册信息
+	 * 保存登录信息
 	 */
 	function save() {
 		$user_name = $this->input->post('user_name');

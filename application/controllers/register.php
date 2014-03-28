@@ -49,4 +49,16 @@ class register extends CI_Controller {
 		//echo $cap['image'];
 		//echo $cap['word'];
 	}
+
+	/*
+	 * 保存登录信息
+	*/
+	function save() {
+		$user_name = $this->input->post('user_name');
+		$password = $this->input->post('password');
+		$email = $this->input->post('email');
+		echo "用户名：".$user_name;
+		
+	}
+	
 }
