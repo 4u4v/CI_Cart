@@ -7,6 +7,7 @@
 class register extends CI_Controller {
 	function __construct() {
 		parent::__construct();
+		$this->load->model('User_model');
 	}
 	public function index() {
 		$data = array();
@@ -57,8 +58,12 @@ class register extends CI_Controller {
 		$user_name = $this->input->post('user_name');
 		$password = $this->input->post('password');
 		$email = $this->input->post('email');
-		echo "用户名：".$user_name;
-		
+		echo "用户名：".$user_name." 密码：".$password." Email：".$email;
+		$this->load->model('User_model');            
+        $this->User_model->name = $user_name;
+		$this->User_model->email = $email;
+		$this->User_model->password = $password;
+		$this->User_model->creare_user(); 
 	}
 	
 }
