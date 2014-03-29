@@ -4,7 +4,7 @@
  * @author: 水木
  * 
  */
-class register extends CI_Controller {
+class Register extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 	}
@@ -57,8 +57,10 @@ class register extends CI_Controller {
 		$user_name = $this->input->post('user_name');
 		$password = $this->input->post('password');
 		$email = $this->input->post('email');
-		echo "用户名：".$user_name;
-		
+		//echo "用户名：".$user_name." 密码：".$password." Email：".$email;
+		$this->load->model('User_model');
+		$this->User_model->create_user();
+
 	}
 	
 }
