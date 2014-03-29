@@ -5,3 +5,4 @@ logs/log-*.php
 */cache/!index.html
 /.buildpath
 /.settings
+logs
