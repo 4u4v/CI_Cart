@@ -9,6 +9,13 @@ class Register extends CI_Controller {
 		parent::__construct();
 	}
 	public function index() {
+		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
+		$this->load->library('form_validation'); //载入表单验证类
+		$this->form_validation->set_rules('user_name', 'User_name', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('confirm_pwd', 'Password Confirmation', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+		
 		$data = array();
 		$data['title']="会员注册";
 		
@@ -23,8 +30,14 @@ class Register extends CI_Controller {
 		);
 		$cap = create_captcha($vals);
 		$data['captcha_code'] = $cap['image'];
-		
+
+		if ($this->form_validation->run() == FALSE){
 		$this->load->view('register', $data);
+		} else {
+			$this->load->view('formsuccess');
+		}
+		
+		//$this->output->enable_profiler(TRUE);
 	}
 	
 	/*
@@ -53,11 +66,8 @@ class Register extends CI_Controller {
 	/*
 	 * 保存登录信息
 	*/
-	function save() {
-		$user_name = $this->input->post('user_name');
-		$password = $this->input->post('password');
-		$email = $this->input->post('email');
-		//echo "用户名：".$user_name." 密码：".$password." Email：".$email;
+	public function save() {
+
 		$this->load->model('User_model');
 		$this->User_model->create_user();
 

@@ -3,7 +3,9 @@
 <body>
 <p>欢迎加注册加入...</p>
 <div class="register">
-<form name="reg_form" action="<?php echo site_url('register/save');?>" method="post">
+<?php echo validation_errors(); ?>
+<?php //echo form_open('form'); ?>
+<form name="reg_form" action="<?php echo site_url('register/save');?>" accept-charset="utf-8" method="post">
 用户名：<input type="text" name="user_name"><br>
 密 码： <input type="password" name="password"><br>
 确认密码：<input type="password" name="confirm_pwd"><br>
