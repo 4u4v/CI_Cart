@@ -15,7 +15,7 @@
 <div class="cat_menu"><span><a href="<?php echo site_url('category/add');?>">==>添加分类</a></span></div>
 <form method="post" action="" name="listForm">
 	<div class="list-div">
-		<table width="98%" border="1" bordercolor="#FFFF99" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px" >
+		<table width="98%" border="0" bordercolor="#FFFF99" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px" >
 			<tbody>
 				<tr bgcolor="#E7E7E7">
 					<th>分类名称</th>
@@ -28,7 +28,7 @@
 					<th>操作</th>
 				</tr>
         <?php foreach($cates as $cate) :?>
-				<tr align="center" class="0" id="0_1">
+				<tr align="center" bgcolor="#FFFFFF" onmousemove="javascript:this.bgColor='#FCFDEE';" onmouseout="javascript:this.bgColor='#FFFFFF';">
 					<td align="left" class="first-cell">
             <?php echo str_repeat("&nbsp;&nbsp;", $cate['level'])?>
 						<img src="<?php echo base_url()?>images/icon/menu_minus.gif" id="icon_0_1" width="9" height="9" border="0" style="margin-left:0em" onclick="rowClicked(this)">

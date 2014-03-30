@@ -15,9 +15,9 @@
 <div class="cat_menu"><span><a href="<?php echo site_url('brand/add');?>">==>添加品牌</a></span></div>
 <form method="post" action="" name="listForm">
 	<div class="list-div">
-		<table width="98%" border="1" bordercolor="#FFFF99" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px" >
+		<table width="98%" border="0" bordercolor="#FFFF99" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px" >
 		    <tbody>
-		<tr>
+		<tr bgcolor="#E7E7E7">
 			<th>品牌名称</th>
 			<th>品牌LOGO</th>
 			<th>品牌网址</th>
@@ -27,7 +27,7 @@
 			<th>操作</th>
 		</tr>
     <?php foreach($brands as $brand) :?>
-    <tr>
+    <tr bgcolor="#FFFFFF" onmousemove="javascript:this.bgColor='#FCFDEE';" onmouseout="javascript:this.bgColor='#FFFFFF';">
 			<td class="first-cell">
 			<span onclick="javascript:listTable.edit(this, 'edit_brand_name', 1)" title="点击修改内容" style=""><?php echo $brand['brand_name'];?></span>
 			</td>
