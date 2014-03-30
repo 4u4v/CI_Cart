@@ -18,10 +18,12 @@ class login extends CI_Controller {
 	/*
 	 * 保存登录信息
 	 */
-	function save() {
+	function login() {
 		$user_name = $this->input->post('user_name');
-		$password = $this->input->post('password');
-		$email = $this->input->post('email');
+		$password = $this->input->post('password');	
+		
+		$this->load->model('User_model');
+		$this->User_model->user_login();
 		
 	}
 }
