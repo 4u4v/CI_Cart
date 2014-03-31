@@ -62,12 +62,28 @@ class Register extends CI_Controller {
 		//echo $cap['image'];
 		//echo $cap['word'];
 	}
+	
+	/*
+	 * 核对验证码
+	 */
+	function check_captcha()
+	{
+		session_start();
+		$Verifier = $this->input->post('captcha');
+		if ($_SESSION['captcha'] == $Verifier){
+			//
+		}else{
+			echo "验证码是".$_SESSION['captcha']." 不对哦~";
+			//redirect('register/verifier');
+		}
+		return;
+	}
 
 	/*
 	 * 保存登录信息
 	*/
 	public function save() {
-
+		$this->check_captcha();
 		$this->load->model('User_model');
 		$this->User_model->create_user();
 
