@@ -7,12 +7,13 @@
 class login extends CI_Controller {
 	function __construct() {
 		parent::__construct();
+		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
+		$this->load->helper('redirect'); //自定义的跳转辅助函数
 	}
 	/*
 	 * 登录默认页面
 	 */
 	public function index() {
-		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 		$this->load->library('form_validation'); //载入表单验证类
 		$this->form_validation->set_rules('user_name', 'User_name', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
@@ -93,12 +94,18 @@ class login extends CI_Controller {
 		$password = $this->input->post('password');	
 		
 		$this->load->model('User_model');
-		if($this->User_model->user_login()==TRUE) {
-			echo "登录验证成功！";
-			//redirect('user/index');
+		if($this->User_model->user_login()===TRUE) {
+			$title = "登录验证成功";
+			$content = "恭喜您，登录验证成功！即将自动进入用户中心.....";
+			$target_url = site_url("user/index");;
+			message($title, $content, $target_url, $delay_time = 3);
+			//redirect('user/index', 'refresh');
 		} else {
-			echo "登录验证失败！";
-			//redirect('login/index');
+			//redirect('login/index', 'refresh');
+			$title = "登录验证失败";
+			$content = "抱歉~，您输入的登录信息不对！即将自动返回登录界面.....";
+			$target_url = site_url("login/index");;
+			message($title, $content, $target_url, $delay_time = 3);
 		}
 	}
 }
