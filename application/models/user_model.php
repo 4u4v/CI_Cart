@@ -9,6 +9,9 @@ class User_model extends CI_Model {
 		$this->load->database(); //载入数据库连接配置
 	}
 	
+	/*
+	 * 用户注册数据
+	 */
 	function create_user() {
 		$user_name = trim($this->input->post('user_name',TRUE));
 		$password = $this->input->post('password',TRUE);
@@ -22,4 +25,15 @@ class User_model extends CI_Model {
 		return $this->db->insert('user', $data); //快捷插入方式
 	}
 	
+	/*
+	 * 登录信息
+	 */
+	function user_login() {
+		$user_name = trim($this->input->post('user_name',TRUE));
+		$password = md5($this->input->post('password',TRUE));
+		$sql = "SELECT * FROM mc_user WHERE user_name='$user_name' AND password='$password'";
+		echo $sql;
+		$query = $this->db->simple_query($sql);
+		return $query;
+	}
 }

@@ -19,6 +19,7 @@ class Register extends CI_Controller {
 		$data = array();
 		$data['title']="会员注册";
 		
+		//生成验证码
 		$this->load->helper('captcha');
 		$vals = array(
 			'word' => rand(100000, 999999),
@@ -31,6 +32,7 @@ class Register extends CI_Controller {
 		$cap = create_captcha($vals);
 		$data['captcha_code'] = $cap['image'];
 
+		//表单验证
 		if ($this->form_validation->run() == FALSE){
 		$this->load->view('register', $data);
 		} else {
@@ -80,13 +82,13 @@ class Register extends CI_Controller {
 	}
 
 	/*
-	 * 保存登录信息
+	 * 保存注册信息
 	*/
 	public function save() {
 		$this->check_captcha();
 		$this->load->model('User_model');
 		$this->User_model->create_user();
-
+		echo "插入数据成功";
 	}
 	
 }
