@@ -9,6 +9,7 @@ class login extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 		$this->load->helper('redirect'); //自定义的跳转辅助函数
+		$this->load->database();
 	}
 	/*
 	 * 登录默认页面
@@ -34,6 +35,14 @@ class login extends CI_Controller {
 		);
 		$cap = create_captcha($vals);
 		$data['captcha_code'] = $cap['image'];
+		$captcha_time = $cap['time'];
+		$word = $cap['word'];
+		$ip_address = $this->input->ip_address();
+		//$this->load->model('User_model');
+		//$this->User_model->insert_captcha();
+		$sql = "INSERT INTO mc_captcha (captcha_time, ip_address, word) VALUES ($captcha_time, '$ip_address', '$word')";
+		//echo $sql;
+		$this->db->query($sql);
 
 		//表单验证
 		if ($this->form_validation->run() == FALSE){
@@ -42,59 +51,31 @@ class login extends CI_Controller {
 			$this->load->view('formsuccess');
 		}
 	}
-
-	/*
-	 * 验证码
-	*/
-	public function captcha() {
-		$this->load->helper('captcha');
-		$vals = array(
-				//'word' => rand(10000, 99999),
-				'img_path' => 'images/captcha/',
-				'img_url' => base_url().'images/captcha/',
-				//'font_path' => './path/to/fonts/texb.ttf',
-				'img_width' => 150,
-				'img_height' => 30,
-				'expiration' => 600
-		);
-		$cap = create_captcha($vals);
-		header('Content-type: image/jpeg');
-		imagejpeg($cap);
-		//imagedestroy($cap);
-		//echo base_url().'images/captcha/'.$cap['time'].".jpg";
-		//echo $cap['image'];
-		//echo $cap['word'];
-	}
-	
-	/*
-	 * 核对验证码
-	*/
-	function check_captcha()
-	{
-		session_start();
-		$get_captcha = $this->input->post('captcha');
-		if ($_SESSION['captcha'] == $get_captcha){
-			if ($get_captcha == $cap['word']) {
-				echo 'cap[word]';
-			} elseif ($get_captcha == $_SESSION['captcha']){
-				echo '_SESSION[captcha]';
-			}
-		}else{
-			echo "验证码是".$_SESSION['captcha']." 不对哦~";
-			//redirect('login/verifier');
-		}
-		return;
-	}
 	
 	/*
 	 * 保存登录信息
 	 */
 	function check_login() {
-		$user_name = $this->input->post('user_name');
-		$password = $this->input->post('password');	
-		
+		// 首先删除旧的验证码
+		$expiration = time()-600; // 1小时限制
+		$this->db->query("DELETE FROM mc_captcha WHERE captcha_time < ".$expiration); 
+
+		// 然后再看是否有验证码存在:
+		$sql = "SELECT COUNT(*) AS count FROM mc_captcha WHERE word = ? AND ip_address = ? AND captcha_time > ?";
+		$binds = array($_POST['captcha'], $this->input->ip_address(), $expiration);
+		$query = $this->db->query($sql, $binds);
+		$row = $query->row();
+		if ($row->count == 0)
+		{
+		   //echo "请正确输入图像上显示的验证码。";
+			$title = "校验验证码";
+			$content = "请正确输入图像上显示的验证码！即将返回操作.....";
+			$target_url = site_url("login/index");;
+			message($title, $content, $target_url, $delay_time = 3);
+		} else {
+
 		$this->load->model('User_model');
-		if($this->User_model->user_login()===TRUE) {
+		if($this->User_model->user_login()=="1") {
 			$title = "登录验证成功";
 			$content = "恭喜您，登录验证成功！即将自动进入用户中心.....";
 			$target_url = site_url("user/index");;
@@ -103,9 +84,10 @@ class login extends CI_Controller {
 		} else {
 			//redirect('login/index', 'refresh');
 			$title = "登录验证失败";
-			$content = "抱歉~，您输入的登录信息不对！即将自动返回登录界面.....";
+			$content = "抱歉~，您输入的用户名或者密码不对！即将自动返回登录界面.....";
 			$target_url = site_url("login/index");;
 			message($title, $content, $target_url, $delay_time = 3);
 		}
+	   }
 	}
 }

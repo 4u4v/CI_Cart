@@ -7,9 +7,10 @@
 class Register extends CI_Controller {
 	function __construct() {
 		parent::__construct();
+		//$this->load->library('session');
+		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 	}
 	public function index() {
-		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 		$this->load->library('form_validation'); //载入表单验证类
 		$this->form_validation->set_rules('user_name', 'User_name', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
@@ -31,6 +32,7 @@ class Register extends CI_Controller {
 		);
 		$cap = create_captcha($vals);
 		$data['captcha_code'] = $cap['image'];
+		$session_captcha = $cap['word'];
 
 		//表单验证
 		if ($this->form_validation->run() == FALSE){
@@ -71,24 +73,34 @@ class Register extends CI_Controller {
 	function check_captcha()
 	{
 		session_start();
-		$Verifier = $this->input->post('captcha');
-		if ($_SESSION['captcha'] == $Verifier){
-			//
+		$post_captcha = $this->input->post('captcha');
+		if ($post_captcha == $cap['word']){
+			$right_captcha = TRUE;
 		}else{
-			echo "验证码是".$_SESSION['captcha']." 不对哦~";
-			//redirect('register/verifier');
+			$right_captcha = FALSE;
+			$this->load->helper('redirect'); //自定义的跳转辅助函数
+			$title = "校验验证码";
+			$content = "验证码是".$_SESSION['captcha']." 不对哦~即将返回操作.....";
+			$target_url = site_url("register/index");;
+			message($title, $content, $target_url, $delay_time = 3);
 		}
-		return;
+		return $right_captcha;
 	}
 
 	/*
 	 * 保存注册信息
 	*/
 	public function save() {
-		$this->check_captcha();
-		$this->load->model('User_model');
-		$this->User_model->create_user();
-		echo "插入数据成功";
+		if ($this->check_captcha()) {
+			$this->load->model('User_model');
+			$this->User_model->create_user();
+			echo "插入数据成功";
+		} else {
+			$title = "注册失败";
+			$content = "抱歉~，您输入的注册信息不完整或者错误！即将自动返回注册页面.....";
+			$target_url = site_url("register/index");;
+			message($title, $content, $target_url, $delay_time = 5);
+		}
 	}
 	
 }
