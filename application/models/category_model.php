@@ -2,7 +2,7 @@
 /*
  * 分类目录数据模型
  */
-class Category_Model extends CI_Model {
+class Category_model extends CI_Model {
 	function __construct(){
 		parent::__construct();
 		$this->load->database();
@@ -14,7 +14,7 @@ class Category_Model extends CI_Model {
 	 */
 	public function get_category()
 	{
-		$data = $this->db->where('pid', 0)->get('category')->result_array();
+		$data = $this->db->get('category')->result_array();
 		return  $data;
 	}
 }

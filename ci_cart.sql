@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50535
 File Encoding         : 65001
 
-Date: 2014-04-02 17:15:03
+Date: 2014-04-03 11:44:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,6 +34,23 @@ CREATE TABLE `mc_captcha` (
 INSERT INTO `mc_captcha` VALUES ('10', '1396400351', '127.0.0.1', '126834');
 INSERT INTO `mc_captcha` VALUES ('12', '1396427513', '127.0.0.1', '486334');
 INSERT INTO `mc_captcha` VALUES ('11', '1396400374', '127.0.0.1', '618362');
+
+-- ----------------------------
+-- Table structure for mc_category
+-- ----------------------------
+DROP TABLE IF EXISTS `mc_category`;
+CREATE TABLE `mc_category` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `cat_name` varchar(16) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of mc_category
+-- ----------------------------
+INSERT INTO `mc_category` VALUES ('1', '分类目录一');
+INSERT INTO `mc_category` VALUES ('2', '分类目录二');
+INSERT INTO `mc_category` VALUES ('3', '分类目录三');
 
 -- ----------------------------
 -- Table structure for mc_sessions
