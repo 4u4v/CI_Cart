@@ -14,8 +14,9 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+$config['base_url']	= "http://127.0.0.1/CI_Cart/admin/";
 
+$config['front_url']	= "http://127.0.0.1/CI_Cart/"; //ǰ̨
 /*
 |--------------------------------------------------------------------------
 | Index File
