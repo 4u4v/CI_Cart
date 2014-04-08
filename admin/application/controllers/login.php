@@ -77,7 +77,7 @@ class login extends CI_Controller {
 		if($this->User_model->user_login()=="1") {
 			$title = "登录验证成功";
 			$content = "恭喜您，登录验证成功！即将自动进入用户中心.....";
-			$target_url = site_url("admin/index");;
+			$target_url = site_url("main");;
 			message($title, $content, $target_url, $delay_time = 3);
 		} else {
 			$title = "登录验证失败";

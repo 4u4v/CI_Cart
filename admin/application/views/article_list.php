@@ -1,9 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<title></title>
-</head>
+<?php $this->load->view('header');?>
+
 <body>
 	<table width='700' border='1'>
 		<tr>
@@ -24,5 +20,4 @@
 			</tr>
 	   <?php endforeach; ?>
 	</table>
-</body>
-</html>
+<?php $this->load->view('footer');?>

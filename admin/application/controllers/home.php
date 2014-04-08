@@ -12,8 +12,8 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$temp['xinxi']="";
-		$this->load->view('home', $temp);
+		$date['title'] = "后台管理中心";
+		$this->load->view('home', $date);
 	}
 }
 

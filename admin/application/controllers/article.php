@@ -8,10 +8,11 @@ class Article extends CI_Controller {
 	}
 
 	/*
-	 * 文章中心默认首页
+	 * 文章中心默认列表首页
 	 */
 	public function index()
 	{
+		$data['title'] = "文章中心列表";
 		//调用article_list方法得到数据
 		$data['article']=$this->article_model->article_list();
 		//加载到视图文件
@@ -32,7 +33,7 @@ class Article extends CI_Controller {
 		$data['title'] = $_POST['title'];
 		$data['author'] = $_POST['author'];
 		$data['content'] = $_POST['content'];
-		$data['add_time'] = time();
+		$data['add_time'] = date("Y-m-d H:i:s");
 		if($this->article_model->add_article($data)){
 			echo "插入成功！";
 		} else {
