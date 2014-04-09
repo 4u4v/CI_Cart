@@ -10,10 +10,33 @@ Target Server Type    : MYSQL
 Target Server Version : 50535
 File Encoding         : 65001
 
-Date: 2014-04-03 11:44:04
+Date: 2014-04-09 15:44:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for mc_article
+-- ----------------------------
+DROP TABLE IF EXISTS `mc_article`;
+CREATE TABLE `mc_article` (
+  `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(32) NOT NULL,
+  `author` varchar(12) DEFAULT NULL,
+  `content` text,
+  `add_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of mc_article
+-- ----------------------------
+INSERT INTO `mc_article` VALUES ('1', 'Title01', 'Author', 'This is Content... This is Content... This is Content... This is Content... This is Content... \r\nThis is Content... This is Content... This is Content... This is Content... This is Content... \r\nThis is Content... This is Content... This is Content... This is Content... This is Content... ', '2014-04-08 09:25:52');
+INSERT INTO `mc_article` VALUES ('2', 'Test02zzz', 'Tester02zzz', 'This is Test02zzz Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... ', '2014-04-08 09:26:57');
+INSERT INTO `mc_article` VALUES ('3', '标题03', '作者03', '这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。\r\n这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。\r\n这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。 ', '2014-04-08 09:27:11');
+INSERT INTO `mc_article` VALUES ('4', 'Title04', 'Author04', 'This is Test04 Content... This is Test04 Content... This is Test04 Content... \r\nThis is Test04 Content... This is Test04 Content... This is Test04 Content... This is Test04 Content... This is Test04 Content... This is Test04 Content... This is Test04 Content... ', '2014-04-08 09:29:52');
+INSERT INTO `mc_article` VALUES ('5', '标题05', '水木', '这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 \r\n这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 ', '2014-04-08 14:21:19');
+INSERT INTO `mc_article` VALUES ('8', '标题08', '作者08', '这里是测试内容08。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 \r\n这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 ', '2014-04-09 15:38:02');
 
 -- ----------------------------
 -- Table structure for mc_captcha
@@ -26,14 +49,13 @@ CREATE TABLE `mc_captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_captcha
 -- ----------------------------
-INSERT INTO `mc_captcha` VALUES ('10', '1396400351', '127.0.0.1', '126834');
-INSERT INTO `mc_captcha` VALUES ('12', '1396427513', '127.0.0.1', '486334');
-INSERT INTO `mc_captcha` VALUES ('11', '1396400374', '127.0.0.1', '618362');
+INSERT INTO `mc_captcha` VALUES ('23', '1396921713', '127.0.0.1', '526983');
+INSERT INTO `mc_captcha` VALUES ('24', '1396921731', '127.0.0.1', '338156');
 
 -- ----------------------------
 -- Table structure for mc_category
@@ -80,7 +102,7 @@ CREATE TABLE `mc_user` (
   `password` char(32) NOT NULL,
   `email` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_user
