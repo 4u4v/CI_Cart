@@ -82,7 +82,7 @@ class login extends CI_Controller {
 		} else {
 			$title = "登录验证失败";
 			$content = "抱歉~，您输入的用户名或者密码不对！即将自动返回登录界面.....";
-			$target_url = site_url("login/index");;
+			$target_url = site_url("login/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		}
 	   }
