@@ -85,8 +85,8 @@
   <tr bgcolor="#FFFFFF">
     <td>MYSQL版本</td>
     <td><?php
-    mysql_connect ("localhost",  "root",  "52mysql1314", "ci_cart");
-     echo mysql_get_server_info();?>
+    //mysql_connect ("localhost",  "root",  "52mysql1314", "ci_cart");
+     echo $this->db->version();?>
      </td>
   </tr>
   <tr bgcolor="#FFFFFF">

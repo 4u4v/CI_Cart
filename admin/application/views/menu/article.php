@@ -20,9 +20,9 @@
         <dt onClick='showHide("items2_1")'><b>新闻管理</b></dt>
         <dd style='display:block' class='sitem' id='items2_1'>
           <ul class='sitemu'>
-            <li><a href='<?php echo site_url('article/index');?>' target='main'>分类管理</a></li>
-            <li><a href='<?php echo site_url('article/add_article');?>' target='main'>添加文章</a></li>
-            <li><a href='<?php echo site_url('article/article_list');?>' target='main'>文章管理</a></li>
+            <li><a href='<?php echo site_url('article/catgory');?>' target='main'>分类管理</a></li>
+            <li><a href='<?php echo site_url('article/add');?>' target='main'>添加文章</a></li>
+            <li><a href='<?php echo site_url('article/index');?>' target='main'>文章管理</a></li>
 
           </ul>
         </dd>

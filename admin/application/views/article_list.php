@@ -15,8 +15,8 @@
 				<td><?php echo $row['title'] ?></td>
 				<td><?php echo $row['author'] ?></td>
 				<td><?php echo $row['add_time'] ?></td>
-				<td><a href="<?php echo site_url('article/edit') ;?>" >编辑</a> 
-					<a href="<?php echo site_url('article/delete');?>" >删除</a></td>
+				<td><a href="<?php echo site_url('article/edit').'?id='.$row['id'];?>" >编辑</a> 
+	<a href="javascript:if(confirm('确实要删除吗?')) location='<?php echo site_url('article/delete').'/'.$row['id'];?>'" >删除</a></td>
 			</tr>
 	   <?php endforeach; ?>
 	</table>

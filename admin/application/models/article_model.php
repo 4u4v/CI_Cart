@@ -18,6 +18,18 @@
 			return $this->db->insert('article',$data);//表名无需加前缀
 		}
 		
+		function select_article($id){
+			$this->db->select('title, author, content');
+			$query = $this->db->get_where('article', array('id' => $id) );
+			//echo $this->db->last_query();
+			return $query->row_array();
+		}
+		
+		function update_article($data){
+			$id = $this->input->get('id', TRUE);
+			$this->db->where('id', $id);
+			return $this->db->update('article', $data);
+		}
 		/*
 		 * @access  public
 		 * @result 以array形式返回查询结果
