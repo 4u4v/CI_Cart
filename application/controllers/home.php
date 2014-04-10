@@ -2,25 +2,14 @@
 
 class home extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
 	function __construct()
 	{
-		parent::__construct();
+		parent::__construct(); //调用父类构造函数(防止子类覆盖父类)
 	}
+	
+	/*
+	 * 默认网站首页
+	 */
 	public function index()
 	{
 		$data=array();
@@ -28,7 +17,10 @@ class home extends CI_Controller {
 		
 		$data['body'] = "<p>Body内容。。。</p>";
 		
-		$data['footer']="";
+		$this->load->model('home_model');
+		//调用article_list方法得到数据
+		$data['article']=$this->home_model->article_list();
+		//加载到视图文件
 		
 		$this->load->view('home', $data);
 		
