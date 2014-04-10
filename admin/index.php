@@ -190,7 +190,8 @@ if (defined('ENVIRONMENT'))
 
 		define('APPPATH', BASEPATH.$application_folder.'/');
 	}
-
+//var_dump(SELF,EXT,BASEPATH,FCPATH,SYSDIR,APPPATH);
+//exit;
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
