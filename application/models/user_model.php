@@ -44,11 +44,19 @@ class User_model extends CI_Model {
 	function user_login() {
 		$user_name = trim($this->input->post('user_name',TRUE));
 		$password = md5($this->input->post('password',TRUE));
-		$sql = "SELECT COUNT(*) AS count FROM mc_user WHERE user_name='$user_name' AND password='$password'";
-		echo $sql."<br>";
+		$sql = "SELECT * FROM mc_user WHERE user_name='$user_name' AND password='$password'";
 		$query = $this->db->query($sql);
-		$row = $query->row();
-		//var_dump($row->count);
-		return $row->count;
+		//var_dump($query->num_rows());
+		return $query->num_rows(); //返回查询结果行数
+	}
+	
+	/*
+	 * 验证SESSION中的用户名是否在user表中
+	 */
+	function check_login(){
+		$session_user = $this->session->userdata('user_data');
+		$query = $this->db->query("SELECT email FROM mc_user WHERE user_name='$session_user'");
+		//var_dump($query->num_rows());
+		return $query->num_rows();
 	}
 }

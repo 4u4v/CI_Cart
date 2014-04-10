@@ -7,6 +7,7 @@
 class login extends CI_Controller {
 	function __construct() {
 		parent::__construct();
+		$this->load->library('session');
 		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 		$this->load->helper('redirect'); //自定义的跳转辅助函数
 		$this->load->database();
@@ -76,11 +77,14 @@ class login extends CI_Controller {
 
 		$this->load->model('User_model');
 		if($this->User_model->user_login()=="1") {
+			$user_name = trim($this->input->post('user_name',TRUE));
+			//如果登录验证成功，则将用户名和验证码写入session
+			$this->session->set_userdata('user_data', $user_name);
+			//print_r($this->session->all_userdata());
 			$title = "登录验证成功";
 			$content = "恭喜您，登录验证成功！即将自动进入用户中心.....";
 			$target_url = site_url("user/index");;
 			message($title, $content, $target_url, $delay_time = 3);
-			//redirect('user/index', 'refresh');
 		} else {
 			//redirect('login/index', 'refresh');
 			$title = "登录验证失败";
