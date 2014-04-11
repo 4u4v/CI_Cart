@@ -8,6 +8,7 @@ class Register extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->library('session');
+		$this->load->helper('redirect');
 		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 	}
 
@@ -15,12 +16,7 @@ class Register extends CI_Controller {
 	* 默认注册页面
 	*/
 	public function index() {
-		$this->load->library('form_validation'); //载入表单验证类
-		$this->form_validation->set_rules('user_name', 'User_name', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required');
-		$this->form_validation->set_rules('confirm_pwd', 'Password Confirmation', 'required');
-		$this->form_validation->set_rules('email', 'Email', 'required');
-		
+	
 		$data = array();
 		$data['title']="会员注册";
 		
@@ -36,20 +32,15 @@ class Register extends CI_Controller {
 		);
 		$cap = create_captcha($vals);
 		$data['captcha_code'] = $cap['image'];
-		//global $captcha_word;
+		
+		//载入表单(含验证码)
+		$this->load->view('register', $data);
+		
 		$session_captcha = $cap['word'];
 
 		$this->session->set_userdata('session_captcha', $session_captcha);
 		//echo $this->session->userdata('session_captcha');
-
-		//表单验证
-		if ($this->form_validation->run() == FALSE){
-		$this->load->view('register', $data);
-		} else {
-			$this->load->view('formsuccess');
-		}
 		
-		//$this->output->enable_profiler(TRUE);
 	}
 
 	/*
@@ -76,20 +67,35 @@ class Register extends CI_Controller {
 	 * 保存注册信息
 	*/
 	public function save() {
-		if ($this->check_captcha()==TRUE) {
-			$this->load->model('User_model');
-			$this->User_model->create_user();
+			//表单校验
+			$this->load->library('form_validation'); //载入表单校验类
+			$this->form_validation->set_rules('user_name', '用户名', 'required');
+			$this->form_validation->set_rules('password', '密码', 'required');
+			$this->form_validation->set_rules('confirm_pwd', '确认密码', 'required');
+			$this->form_validation->set_rules('email', '邮箱', 'required');
 			
-			$title = "登录注册成功";
-			$content = "恭喜您，登录注册成功！即将自动进入用户中心.....";
-			$target_url = site_url("user/index");;
-			message($title, $content, $target_url, $delay_time = 3);
-		} else {
-			$title = "注册失败";
-			$content = "抱歉~，您输入的注册信息不完整或者错误！即将自动返回注册页面.....";
-			$target_url = site_url("register/index");;
-			message($title, $content, $target_url, $delay_time = 5);
+			if ($this->form_validation->run() == FALSE){
+				//校验失败，重新转回表单填写页面
+				$title = "表单校验未通过";
+				$content = "<font color='red'>".validation_errors()."</font><br>请输入完整正确的注册信息！即将返回注册页面.....";
+				$target_url = site_url("register/index");;
+				message($title, $content, $target_url, $delay_time = 10);
+			} else { //表单校验成功则执行下列操作
+				if ($this->check_captcha()==TRUE) {
+				$this->load->model('User_model');//调用模型数据
+				$this->User_model->create_user();//执行SQL插入语句
+				
+				$title = "登录注册成功";
+				$content = "恭喜您，登录注册成功！即将自动进入用户中心.....";
+				$target_url = site_url("user/index");;
+				message($title, $content, $target_url, $delay_time = 3);
+				} else {
+				$title = "注册失败";
+				$content = "抱歉~，您输入的注册信息不完整或者错误！即将自动返回注册页面.....";
+				$target_url = site_url("register/index");;
+				message($title, $content, $target_url, $delay_time = 5);
+				}
+			}
 		}
-	}
 	
 }

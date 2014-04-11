@@ -19,9 +19,10 @@ class User_model extends CI_Model {
 		$data = array(
 				'user_name' => $user_name,
 				'password' => md5($password),
-				'email' => $email
+				'email' => $email,
+				'reg_time' => date('Y-m-d H:i:s')
 		);
-		echo "用户名：".$user_name." 密码：".$password." Email：".$email;
+		echo "用户名：".$user_name." 密码：".$password." Email：".$email." reg_time：".$reg_time;
 		return $this->db->insert('user', $data); //快捷插入方式
 	}
 

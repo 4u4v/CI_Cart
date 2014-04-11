@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50535
 File Encoding         : 65001
 
-Date: 2014-04-10 16:00:44
+Date: 2014-04-11 10:20:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,17 +49,17 @@ CREATE TABLE `mc_captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_captcha
 -- ----------------------------
-INSERT INTO `mc_captcha` VALUES ('43', '1397116488', '127.0.0.1', '550659');
-INSERT INTO `mc_captcha` VALUES ('42', '1397116452', '127.0.0.1', '874563');
-INSERT INTO `mc_captcha` VALUES ('41', '1397116406', '127.0.0.1', '854129');
-INSERT INTO `mc_captcha` VALUES ('46', '1397116714', '127.0.0.1', '805130');
-INSERT INTO `mc_captcha` VALUES ('45', '1397116534', '127.0.0.1', '331921');
-INSERT INTO `mc_captcha` VALUES ('44', '1397116515', '127.0.0.1', '945974');
+INSERT INTO `mc_captcha` VALUES ('52', '1397182815', '127.0.0.1', '330438');
+INSERT INTO `mc_captcha` VALUES ('51', '1397182147', '127.0.0.1', '234335');
+INSERT INTO `mc_captcha` VALUES ('47', '1397120224', '127.0.0.1', '550906');
+INSERT INTO `mc_captcha` VALUES ('50', '1397176882', '127.0.0.1', '596362');
+INSERT INTO `mc_captcha` VALUES ('49', '1397176866', '127.0.0.1', '405941');
+INSERT INTO `mc_captcha` VALUES ('48', '1397120268', '127.0.0.1', '717266');
 
 -- ----------------------------
 -- Table structure for mc_category
@@ -105,18 +105,20 @@ CREATE TABLE `mc_user` (
   `user_name` char(16) NOT NULL,
   `password` char(32) NOT NULL,
   `email` varchar(32) NOT NULL,
+  `reg_time` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_name` (`user_name`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_user
 -- ----------------------------
-INSERT INTO `mc_user` VALUES ('1', 'tester01', 'e10adc3949ba59abbe56e057f20f883e', 'tester01@qq.com');
-INSERT INTO `mc_user` VALUES ('2', 'tester02', 'e10adc3949ba59abbe56e057f20f883e', 'tester02@qq.com');
-INSERT INTO `mc_user` VALUES ('3', 'tester03', 'f4eddb1257c91ed28fd2fead367337e9', 'tester03@qq.com');
-INSERT INTO `mc_user` VALUES ('7', 'tester06', '6daa15f2f1ee5e29686026099560220b', 'tester06@qq.com');
-INSERT INTO `mc_user` VALUES ('5', 'tester05', 'd41d8cd98f00b204e9800998ecf8427e', 'tester05@qq.com');
-INSERT INTO `mc_user` VALUES ('6', 'tester07', '25d55ad283aa400af464c76d713c07ad', 'tester06@qq.com');
-INSERT INTO `mc_user` VALUES ('8', 'tester08', 'd41d8cd98f00b204e9800998ecf8427e', 'tester08@qq.com');
-INSERT INTO `mc_user` VALUES ('9', 'tester09', '1560fb02f6f8bda0b7b189691ec595e7', 'tester09@qq.com');
+INSERT INTO `mc_user` VALUES ('1', 'tester01', 'e10adc3949ba59abbe56e057f20f883e', 'tester01@qq.com', '0000-00-00 00:00:00');
+INSERT INTO `mc_user` VALUES ('2', 'tester02', 'e10adc3949ba59abbe56e057f20f883e', 'tester02@qq.com', '0000-00-00 00:00:00');
+INSERT INTO `mc_user` VALUES ('3', 'tester03', 'f4eddb1257c91ed28fd2fead367337e9', 'tester03@qq.com', '2014-04-07 10:08:58');
+INSERT INTO `mc_user` VALUES ('5', 'tester05', 'd41d8cd98f00b204e9800998ecf8427e', 'tester05@qq.com', '2014-04-08 10:08:58');
+INSERT INTO `mc_user` VALUES ('6', 'tester07', '25d55ad283aa400af464c76d713c07ad', 'tester06@qq.com', '2014-04-09 10:08:58');
+INSERT INTO `mc_user` VALUES ('7', 'tester06', '6daa15f2f1ee5e29686026099560220b', 'tester06@qq.com', '2014-04-10 10:08:58');
+INSERT INTO `mc_user` VALUES ('8', 'tester08', 'd41d8cd98f00b204e9800998ecf8427e', 'tester08@qq.com', '2014-04-10 10:18:58');
+INSERT INTO `mc_user` VALUES ('9', 'tester09', '1560fb02f6f8bda0b7b189691ec595e7', 'tester09@qq.com', '2014-04-11 10:08:58');
+INSERT INTO `mc_user` VALUES ('10', 'tester10', 'af71a0623b472fb657d4c68545140035', 'tester10@qq.com', '2014-04-11 10:20:07');
