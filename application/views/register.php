@@ -3,7 +3,6 @@
 <body>
 <p>欢迎加注册加入...</p>
 <div class="register">
-<?php echo validation_errors(); ?>
 <?php //echo form_open('form'); ?>
 <form name="reg_form" action="<?php echo site_url('register/save');?>" accept-charset="utf-8" method="post">
 用户名：<input type="text" name="user_name"><br>

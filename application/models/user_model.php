@@ -19,9 +19,10 @@ class User_model extends CI_Model {
 		$data = array(
 				'user_name' => $user_name,
 				'password' => md5($password),
-				'email' => $email
+				'email' => $email,
+				'reg_time' => date('Y-m-d H:i:s')
 		);
-		echo "用户名：".$user_name." 密码：".$password." Email：".$email;
+		//echo "用户名：".$user_name." 密码：".$password." Email：".$email." reg_time：".$reg_time;
 		return $this->db->insert('user', $data); //快捷插入方式
 	}
 
@@ -44,8 +45,9 @@ class User_model extends CI_Model {
 	function user_login() {
 		$user_name = trim($this->input->post('user_name',TRUE));
 		$password = md5($this->input->post('password',TRUE));
-		$sql = "SELECT * FROM mc_user WHERE user_name='$user_name' AND password='$password'";
-		$query = $this->db->query($sql);
+		//$sql = "SELECT * FROM mc_user WHERE user_name='$user_name' AND password='$password'";
+		//$query = $this->db->query($sql);
+		$query = $this->db->get_where('user', array('user_name' => $user_name, 'password' => $password));
 		//var_dump($query->num_rows());
 		return $query->num_rows(); //返回查询结果行数
 	}

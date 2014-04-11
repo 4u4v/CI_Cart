@@ -15,14 +15,10 @@ class login extends CI_Controller {
 	 * 登录默认页面
 	 */
 	public function index() {
-		$this->load->library('form_validation'); //载入表单验证类
-		$this->form_validation->set_rules('user_name', 'User_name', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required');
 		
 		$data = array();
 		$data['title']="会员登录";
-		
-			
+
 		//生成验证码
 		$this->load->helper('captcha');
 		$vals = array(
@@ -38,18 +34,16 @@ class login extends CI_Controller {
 		$captcha_time = $cap['time'];
 		$word = $cap['word'];
 		$ip_address = $this->input->ip_address();
+		
+		//载入登录页面
+		$this->load->view('login', $data);
+		
 		//$this->load->model('User_model');
 		//$this->User_model->insert_captcha();
 		$sql = "INSERT INTO mc_captcha (captcha_time, ip_address, word) VALUES ($captcha_time, '$ip_address', '$word')";
 		//echo $sql;
 		$this->db->query($sql);
 
-		//表单验证
-		if ($this->form_validation->run() == FALSE){
-		$this->load->view('login', $data);
-		} else {
-			$this->load->view('formsuccess');
-		}
 	}
 	
 	/*
@@ -76,12 +70,12 @@ class login extends CI_Controller {
 		$this->load->model('User_model');
 		if($this->User_model->user_login()=="1") {
 			$title = "登录验证成功";
-			$content = "恭喜您，登录验证成功！即将自动进入用户中心.....";
-			$target_url = site_url("main");;
+			$content = "恭喜您，登录验证成功！即将自动进入管理中心.....";
+			$target_url = site_url("home");;
 			message($title, $content, $target_url, $delay_time = 3);
 		} else {
 			$title = "登录验证失败";
-			$content = "抱歉~，您输入的用户名或者密码不对！即将自动返回登录界面.....";
+			$content = "抱歉~，您输入的用户名或者密码不对！即将返回登录界面.....";
 			$target_url = site_url("login/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		}
