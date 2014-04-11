@@ -10,7 +10,7 @@ class User_model extends CI_Model {
 	}
 	
 	/*
-	 * 用户注册数据
+	 * 添加管理员数据
 	 */
 	function create_user() {
 		$user_name = trim($this->input->post('user_name',TRUE));
@@ -20,9 +20,8 @@ class User_model extends CI_Model {
 				'user_name' => $user_name,
 				'password' => md5($password),
 				'email' => $email
-		);
-		echo "用户名：".$user_name." 密码：".$password." Email：".$email;
-		return $this->db->insert('user', $data); //快捷插入方式
+		); 
+		return $this->db->insert('manager', $data); //快捷插入方式
 	}
 
 	/*
@@ -44,11 +43,8 @@ class User_model extends CI_Model {
 	function user_login() {
 		$user_name = trim($this->input->post('user_name',TRUE));
 		$password = md5($this->input->post('password',TRUE));
-		$sql = "SELECT COUNT(*) AS count FROM mc_user WHERE user_name='$user_name' AND password='$password'";
-		echo $sql."<br>";
-		$query = $this->db->query($sql);
-		$row = $query->row();
-		//var_dump($row->count);
-		return $row->count;
+		$query = $this->db->get_where('manager', array('administrator' => $user_name, 'password' => $password));
+		//var_dump($query->num_rows());
+		return  $query->num_rows(); //返回查询结果行数
 	}
 }

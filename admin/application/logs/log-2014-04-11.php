@@ -1,0 +1,26 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2014-04-11 10:24:52 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 10:24:52 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 10:24:53 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 10:24:53 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 10:45:36 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:16:45 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:33:28 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:33:28 --> Severity: Notice  --> Undefined variable: captcha_code D:\phpStudy\WWW\CI_Cart\admin\application\views\login.php 12
+ERROR - 2014-04-11 11:41:37 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:42:03 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:42:03 --> Query error: Unknown column 'user_name' in 'where clause'
+ERROR - 2014-04-11 11:46:07 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:46:07 --> Query error: Unknown column 'user_name' in 'where clause'
+ERROR - 2014-04-11 11:46:14 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:47:05 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:47:08 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:47:33 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:47:36 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:48:38 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:48:41 --> 404 Page Not Found --> main
+ERROR - 2014-04-11 11:48:51 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:48:51 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:48:51 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-04-11 11:48:52 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
