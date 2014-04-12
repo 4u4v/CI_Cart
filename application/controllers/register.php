@@ -7,6 +7,7 @@
 class Register extends CI_Controller {
 	function __construct() {
 		parent::__construct();
+		$this->load->helper('captcha');
 		$this->load->library('session');
 		$this->load->helper('redirect');
 		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
@@ -19,7 +20,7 @@ class Register extends CI_Controller {
 	
 		$data = array();
 		$data['title']="会员注册";
-		
+		/*
 		//生成验证码
 		$this->load->helper('captcha');
 		$vals = array(
@@ -32,15 +33,28 @@ class Register extends CI_Controller {
 		);
 		$cap = create_captcha($vals);
 		$data['captcha_code'] = $cap['image'];
-		
-		//载入表单(含验证码)
-		$this->load->view('register', $data);
-		
+
 		$session_captcha = $cap['word'];
 
 		$this->session->set_userdata('session_captcha', $session_captcha);
 		//echo $this->session->userdata('session_captcha');
-		
+		*/
+
+		//载入表单(含验证码)
+		$this->load->view('register', $data);
+	}
+
+	/*
+	*生成验证码
+	*/
+	public function code() {
+		#调用函数生成验证码
+		$vals = array(
+			'word_length' => 6,
+		);
+		$code = create_captcha($vals);
+		#将验证码字符串保存到session中
+		$this->session->set_userdata('code',$code);
 	}
 
 	/*
@@ -48,7 +62,7 @@ class Register extends CI_Controller {
 	 */
 	function check_captcha()
 	{
-		$captcha_word = $this->session->userdata('session_captcha');
+		$captcha_word = $this->session->userdata('code');
 		$post_captcha = $this->input->post('captcha');
 		if ($post_captcha == $captcha_word){
 			$right_captcha = TRUE;
