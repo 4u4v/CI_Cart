@@ -41,6 +41,7 @@ if ( ! function_exists('create_captcha'))
 {
 	function create_captcha($data = '', $font_path = '')
 	{
+		//不再需要$img_path, $img_url
 		$defaults = array('word' => '', 'word_length' => 4, 'img_width' => '150', 'img_height' => '30', 'font_path' => '', 'expiration' => 7200);
 
 		foreach ($defaults as $key => $val)
@@ -108,7 +109,7 @@ if ( ! function_exists('create_captcha'))
 
 	   if ($word == '')
 	   {
-			$pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			$pool = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 			$str = '';
 			for ($i = 0; $i < $word_length; $i++)
@@ -233,12 +234,13 @@ if ( ! function_exists('create_captcha'))
 		// ImageJPEG($im, $img_path.$img_name);
 
 		// $img = "<img src=\"$img_url$img_name\" width=\"$img_width\" height=\"$img_height\" style=\"border:0;\" alt=\" \" />";
-		#直接输出
+		
+		//直接输出
 		header("Content-Type:image/jpeg");
 		imagejpeg($im);
 
 		ImageDestroy($im);
-		#返回生成的验证码字符串
+		//返回生成的验证码字符串
 		return $word;
 		// return array('word' => $word, 'time' => $now, 'image' => $img);
 	}

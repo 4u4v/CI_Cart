@@ -11,7 +11,7 @@
 邮 箱：<input type="text" name="email"><br>
 验证码：<input type="text" name="captcha"><br>
 <?php //echo $captcha_code;?>
-<img src="<?php echo site_url('register/code');?>" alt="" onclick= this.src="<?php echo site_url('register/code').'/'?>"+Math.random() style="cursor: pointer;" title="看不清？点击更换另一个验证码。"/>
+<img src="<?php echo site_url('register/code');?>" alt="验证码" onclick= this.src="<?php echo site_url('register/code').'/'?>"+Math.random() style="cursor: pointer;" title="看不清？点击更换另一个验证码。"/>
 <br><input type="submit" value="提交注册">
 </form>
 </div>
