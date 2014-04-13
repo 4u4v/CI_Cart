@@ -7,9 +7,9 @@
 class Register extends CI_Controller {
 	function __construct() {
 		parent::__construct();
-		$this->load->helper('captcha');
+		$this->load->helper('verification_code'); //自定义的验证码 
 		$this->load->library('session');
-		$this->load->helper('redirect');
+		$this->load->helper('redirect'); //载入跳转提示辅助函数
 		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 	}
 
