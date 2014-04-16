@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50535
 File Encoding         : 65001
 
-Date: 2014-04-11 10:20:45
+Date: 2014-04-21 16:05:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,17 +49,12 @@ CREATE TABLE `mc_captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_captcha
 -- ----------------------------
-INSERT INTO `mc_captcha` VALUES ('52', '1397182815', '127.0.0.1', '330438');
-INSERT INTO `mc_captcha` VALUES ('51', '1397182147', '127.0.0.1', '234335');
-INSERT INTO `mc_captcha` VALUES ('47', '1397120224', '127.0.0.1', '550906');
-INSERT INTO `mc_captcha` VALUES ('50', '1397176882', '127.0.0.1', '596362');
-INSERT INTO `mc_captcha` VALUES ('49', '1397176866', '127.0.0.1', '405941');
-INSERT INTO `mc_captcha` VALUES ('48', '1397120268', '127.0.0.1', '717266');
+INSERT INTO `mc_captcha` VALUES ('100', '1398060183', '127.0.0.1', '289514');
 
 -- ----------------------------
 -- Table structure for mc_category
@@ -67,16 +62,38 @@ INSERT INTO `mc_captcha` VALUES ('48', '1397120268', '127.0.0.1', '717266');
 DROP TABLE IF EXISTS `mc_category`;
 CREATE TABLE `mc_category` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `cat_name` varchar(16) NOT NULL,
+  `cat_name` varchar(32) NOT NULL,
+  `cat_ename` varchar(32) DEFAULT NULL,
+  `sort_id` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_category
 -- ----------------------------
-INSERT INTO `mc_category` VALUES ('1', '分类目录一');
-INSERT INTO `mc_category` VALUES ('2', '分类目录二');
-INSERT INTO `mc_category` VALUES ('3', '分类目录三');
+INSERT INTO `mc_category` VALUES ('1', '分类目录一', 'category1', '1');
+INSERT INTO `mc_category` VALUES ('2', '分类目录二', 'category2', '2');
+INSERT INTO `mc_category` VALUES ('3', '分类目录三', 'category3', '3');
+INSERT INTO `mc_category` VALUES ('5', '分类目录五', 'category5', '5');
+
+-- ----------------------------
+-- Table structure for mc_manager
+-- ----------------------------
+DROP TABLE IF EXISTS `mc_manager`;
+CREATE TABLE `mc_manager` (
+  `id` int(8) NOT NULL AUTO_INCREMENT,
+  `administrator` char(16) NOT NULL,
+  `password` char(32) NOT NULL,
+  `email` varchar(32) NOT NULL,
+  `login_time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `administrator` (`administrator`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of mc_manager
+-- ----------------------------
+INSERT INTO `mc_manager` VALUES ('1', 'admin', '7fef6171469e80d32c0559f88b377245', 'admin@4u4v.net', '2014-04-11 10:08:58');
 
 -- ----------------------------
 -- Table structure for mc_sessions
