@@ -15,7 +15,7 @@
 				<li><label for="">标题</label><input value="<?php echo $title;?>" type="text" name="title"/></li>
 				<li><label for="">作者</label><input value="<?php echo $author;?>" type="text" name="author"/></li>
 				<li><label for="">分类</label>
-				<select name="cat_list">
+				<select name="select_cat">
 				<option value="<?php echo $id;?>" selected="selected"><?php echo $select_cat;?></option>
 				<?php foreach($cat_list as $row) : ?>
 				<option value="<?php echo $row['id'];?>"><?php echo $row['cat_name'];?></option>

@@ -61,7 +61,7 @@ class Article extends CI_Controller {
 		//载入编辑文章表单
 		$data['id']= $id = $this->input->get('id', TRUE);
 		$result=$this->article_model->select_article($id);
-		var_dump($result);
+		//var_dump($result);
 		$data['title'] = $result['title'];
 		$data['author'] = $result['author'];
 		$data['content'] = $result['content'];
@@ -81,12 +81,19 @@ class Article extends CI_Controller {
 	function update(){
 		$data['title'] = $_POST['title'];
 		$data['author'] = $_POST['author'];
+		$data['cat_id'] = $_POST['select_cat'];
 		$data['content'] = $_POST['content'];
-		print_r($data);
+		//print_r($data);
 		if($this->article_model->update_article($data)){
-			echo "更新成功！";
+			$title = "文章更新成功";
+			$content = "文章更新成功！即将自动进入文章列表中心.....";
+			$target_url = site_url("article/index");
+			message($title, $content, $target_url, $delay_time = 3);
 		} else {
-			echo "更新失败！";
+			$title = "文章更新失败";
+			$content = "文章更新失败！即将自动进入文章列表中心.....";
+			$target_url = site_url("article/index");
+			message($title, $content, $target_url, $delay_time = 3);
 		}
 	}
 	
