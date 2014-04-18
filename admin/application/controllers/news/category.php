@@ -18,7 +18,7 @@ class Category extends CI_Controller {
 		//调用模型中category_list方法得到数据
 		$data['category']=$this->category_model->category_list();
 		//加载到视图文件
-		$this->load->view('category', $data);
+		$this->load->view('news/category', $data);
 	}
 	
 	/*
@@ -31,12 +31,12 @@ class Category extends CI_Controller {
 		if($this->category_model->add_category($data)){
 			$title = "分类添加成功";
 			$content = "分类添加成功！即将自动进入分类列表中心.....";
-			$target_url = site_url("category/index");
+			$target_url = site_url("news/category/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		} else {
 			$title = "分类添加失败";
 			$content = "抱歉~，您输入的内容有误或不完整！即将自动返回分类添加页面.....";
-			$target_url = site_url("category/add");;
+			$target_url = site_url("news/category/add");;
 			message($title, $content, $target_url, $delay_time = 3);
 		}
 	}
@@ -54,14 +54,14 @@ class Category extends CI_Controller {
 		{
 			$title = "";
 			$content = "分类修改成功！即将自动进入分类列表中心.....";
-			$target_url = site_url("category/index");
+			$target_url = site_url("news/category/index");
 			message($title, $content, $target_url, $delay_time = 2);
 		}
 		else
 		{
 			$title = "";
 			$content = "修改分类失败！即将自动进入分类列表中心.....";
-			$target_url = site_url("category/index");
+			$target_url = site_url("news/category/index");
 			message($title, $content, $target_url, $delay_time = 2);
 		}
 	}
@@ -75,12 +75,12 @@ class Category extends CI_Controller {
 		if ($result){
 			$title = "分类删除成功";
 			$content = "分类删除成功！即将自动进入分类列表中心.....";
-			$target_url = site_url("category/index");
+			$target_url = site_url("news/category/index");
 			message($title, $content, $target_url, $delay_time = 2);
 		} else {
 			$title = "分类删除失败";
 			$content = "分类删除失败！即将自动进入分类列表中心.....";
-			$target_url = site_url("category/index");
+			$target_url = site_url("news/category/index");
 			message($title, $content, $target_url, $delay_time = 2);
 		}
 	}

@@ -28,7 +28,7 @@
   foreach($category as $key) {
   ?>
   <?php 
-  echo form_open("category/update");
+  echo form_open("news/category/update");
   //跨站请求伪造CSRF保护(后面加."?id=".$key['id']无效！)
   ?>
   <input type="hidden" name="id" value="<?php echo $key['id'];?>" />
@@ -37,14 +37,14 @@
     <td align="center"><input type="text" name="name" id="textfield3"  value="<?php echo $key['cat_name'];?>" /></td>
     <td align="center"><input name="alias" type="text" id="textfield5" size="40"  value="<?php echo $key['cat_ename'];?>" /></td>
     <td align="left"> &nbsp; <input type="submit" name="button" id="button" value="修改" /> &nbsp; &nbsp;
-    <a href="javascript:if(confirm('确定要删除吗?')) location='<?php echo site_url('category/delete').'/'.$key['id'];?>'" >删除</a></td>
+    <a href="javascript:if(confirm('确定要删除吗?')) location='<?php echo site_url('news/category/delete').'/'.$key['id'];?>'" >删除</a></td>
   </tr>
   </form>
   <?php }}?>
   <tr align='center' bgcolor="#FFFFFF" onmousemove="javascript:this.bgColor='#FCFDEE';" onmouseout="javascript:this.bgColor='#FFFFFF';" height="22" >
     <td colspan="4" align="center">&nbsp;</td>
   </tr>
-  <?php echo form_open('category/insert');?>
+  <?php echo form_open('news/category/insert');?>
   <tr align='center' bgcolor="#FFFFFF" onmousemove="javascript:this.bgColor='#FCFDEE';" onmouseout="javascript:this.bgColor='#FFFFFF';" height="22" >
     <td align="center"><input name="weizhi" type="text" id="textfield2" size="5" /></td>
     <td align="center"><input type="text" name="name" id="textfield4" /></td>

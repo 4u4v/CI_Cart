@@ -8,7 +8,7 @@
 	</style>
 </head>
 <body>
-	<form action="<?php echo site_url('article/insert')?>" method="post">
+	<form action="<?php echo site_url('news/article/insert')?>" method="post">
 		<fieldset>
 			<legend>添加文章</legend>
 			<ul>

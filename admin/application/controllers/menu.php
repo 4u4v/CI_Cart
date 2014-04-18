@@ -25,7 +25,7 @@ class Menu extends CI_Controller {
 	}
 	function article()
 	{
-		$this->load->view('menu/article');
+		$this->load->view('menu/content');
 	}
 	function qita()
 	{

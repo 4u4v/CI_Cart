@@ -19,7 +19,7 @@ class Article extends CI_Controller {
 		//调用article_list方法得到数据
 		$data['article']=$this->article_model->article_list();
 		//加载到视图文件
-		$this->load->view('article_list', $data);
+		$this->load->view('news/article_list', $data);
 	}
 	
 	function add() {
@@ -28,7 +28,7 @@ class Article extends CI_Controller {
 		//echo $this->db->last_query();
 		$data['cat_list'] = $query->result_array();
 		//载入添加文章表单
-		$this->load->view('add_article', $data);
+		$this->load->view('news/add_article', $data);
 	}
 	
 	/*
@@ -43,12 +43,12 @@ class Article extends CI_Controller {
 		if($this->article_model->add_article($data)){
 			$title = "文章添加成功";
 			$content = "文章添加成功！即将自动进入文章列表中心.....";
-			$target_url = site_url("article/index");
+			$target_url = site_url("news/article/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		} else {
 			$title = "文章添加失败";
 			$content = "抱歉~，您输入的内容有误或不完整！即将自动返回文章添加页面.....";
-			$target_url = site_url("article/add");;
+			$target_url = site_url("news/article/add");;
 			message($title, $content, $target_url, $delay_time = 3);
 		}
 	}
@@ -71,7 +71,7 @@ class Article extends CI_Controller {
 		$query = $this->db->get('category');
 		$data['cat_list'] = $query->result_array();
 		
-		$this->load->view('edit_article', $data);
+		$this->load->view('news/edit_article', $data);
 		
 	}
 
@@ -87,12 +87,12 @@ class Article extends CI_Controller {
 		if($this->article_model->update_article($data)){
 			$title = "文章更新成功";
 			$content = "文章更新成功！即将自动进入文章列表中心.....";
-			$target_url = site_url("article/index");
+			$target_url = site_url("news/article/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		} else {
 			$title = "文章更新失败";
 			$content = "文章更新失败！即将自动进入文章列表中心.....";
-			$target_url = site_url("article/index");
+			$target_url = site_url("news/article/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		}
 	}
@@ -103,12 +103,12 @@ class Article extends CI_Controller {
 		if ($result){
 			$title = "文章删除成功";
 			$content = "文章删除成功！即将自动进入文章列表中心.....";
-			$target_url = site_url("article/index");
+			$target_url = site_url("news/article/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		} else {
 			$title = "文章删除失败";
 			$content = "文章删除失败！即将自动进入文章列表中心.....";
-			$target_url = site_url("article/index");
+			$target_url = site_url("news/article/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		}
 	}
