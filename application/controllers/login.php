@@ -71,7 +71,7 @@ class login extends CI_Controller {
 		   //echo "请正确输入图像上显示的验证码。";
 			$title = "校验验证码";
 			$content = "请正确输入图像上显示的验证码！即将返回操作.....";
-			$target_url = site_url("login/index");;
+			$target_url = site_url("login/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		} else {
 
@@ -83,13 +83,13 @@ class login extends CI_Controller {
 			//print_r($this->session->all_userdata());
 			$title = "登录验证成功";
 			$content = "恭喜您，登录验证成功！即将自动进入用户中心.....";
-			$target_url = site_url("user/index");;
+			$target_url = site_url("user/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		} else {
 			//redirect('login/index', 'refresh');
 			$title = "登录验证失败";
 			$content = "抱歉~，您输入的用户名或者密码不对！即将自动返回登录界面.....";
-			$target_url = site_url("login/index");;
+			$target_url = site_url("login/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		}
 	   }

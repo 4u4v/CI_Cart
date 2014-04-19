@@ -145,9 +145,9 @@ a:link,a:visited {
       <tr>
       <td align="right" height="26" style="padding-right:10px;line-height:26px;">
         	您好：<span class="username"><?php //echo $username;?></span>，欢迎使用内容管理系统！
-        	[<a href="<?php echo base_url();?>" target="_blank">网站主页</a>]
-        	[<a href="<?php echo site_url('admin/main/password');?>" target="main">修改密码</a>]
-        	[<a href="<?php echo site_url('admin/home/login_out');?>" target="_top">注销退出</a>]&nbsp;
+        	[<a href="<?php echo front_url();?>" target="_blank">网站主页</a>]
+        	[<a href="<?php echo site_url('main/password');?>" target="main">修改密码</a>]
+        	[<a href="<?php echo site_url('home/login_out');?>" target="_top">注销退出</a>]&nbsp;
       </td>
       </tr>
       <tr>
