@@ -63,7 +63,7 @@ class login extends CI_Controller {
 		{
 			$title = "校验验证码";
 			$content = "请正确输入图像上显示的验证码！即将返回操作.....";
-			$target_url = site_url("login/index");;
+			$target_url = site_url("login/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		} else {
 
@@ -71,7 +71,7 @@ class login extends CI_Controller {
 		if($this->User_model->user_login()=="1") {
 			$title = "登录验证成功";
 			$content = "恭喜您，登录验证成功！即将自动进入管理中心.....";
-			$target_url = site_url("home");;
+			$target_url = site_url("home");
 			message($title, $content, $target_url, $delay_time = 3);
 		} else {
 			$title = "登录验证失败";
