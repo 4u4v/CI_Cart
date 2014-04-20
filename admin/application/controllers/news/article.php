@@ -7,7 +7,7 @@ class Article extends CI_Controller {
 		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 		$this->load->helper('redirect'); //自定义的跳转辅助函数
 		#载入article_model，载入之后，可以使用$this->article_model来操作
-		$this->load->model('article_model');
+		$this->load->model('news/article_model');
 	}
 
 	/*

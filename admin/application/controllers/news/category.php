@@ -6,7 +6,7 @@ class Category extends CI_Controller {
 		$this->load->model('Check');
 		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 		$this->load->helper('redirect'); //自定义的跳转辅助函数
-		$this->load->model('category_model');
+		$this->load->model('news/category_model');
 	}
 
 	/*
