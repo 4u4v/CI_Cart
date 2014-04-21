@@ -5,6 +5,7 @@
 		<tr>
 			<th>编号</th>
 			<th>标题</th>
+			<th>分类</th>
 			<th>作者</th>
 			<th>添加时间</th>
 			<th>操作</th>
@@ -13,6 +14,7 @@
 			<tr>
 				<td><?php echo $row['id'] ?></td>
 				<td><?php echo $row['title'] ?></td>
+				<td><?php echo $row['cat_name'] ?></td>
 				<td><?php echo $row['author'] ?></td>
 				<td><?php echo $row['add_time'] ?></td>
 				<td><a href="<?php echo site_url('article/edit').'?id='.$row['id'];?>" >编辑</a> 

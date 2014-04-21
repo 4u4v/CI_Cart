@@ -17,7 +17,7 @@
       <!-- Item 1 End -->
       <!-- Item 2 Strat -->
       <dl class='bitem'>
-        <dt onClick='showHide("items2_1")'><b>新闻管理</b></dt>
+        <dt onClick='showHide("items2_1")'><b>文章管理</b></dt>
         <dd style='display:block' class='sitem' id='items2_1'>
           <ul class='sitemu'>
             <li><a href='<?php echo site_url('category');?>' target='main'>分类管理</a></li>

@@ -23,8 +23,12 @@ class Article extends CI_Controller {
 	}
 	
 	function add() {
+		$this->db->select('id,cat_name');
+		$query = $this->db->get('category');
+		//echo $this->db->last_query();
+		$data['cat_list'] = $query->result_array();
 		//载入添加文章表单
-		$this->load->view('add_article');
+		$this->load->view('add_article', $data);
 	}
 	
 	/*
@@ -33,6 +37,7 @@ class Article extends CI_Controller {
 	function insert(){
 		$data['title'] = $_POST['title'];
 		$data['author'] = $_POST['author'];
+		$data['cat_id'] = $_POST['cat_list'];
 		$data['content'] = $_POST['content'];
 		$data['add_time'] = date("Y-m-d H:i:s");
 		if($this->article_model->add_article($data)){
@@ -56,17 +61,16 @@ class Article extends CI_Controller {
 		//载入编辑文章表单
 		$data['id']= $id = $this->input->get('id', TRUE);
 		$result=$this->article_model->select_article($id);
-		//var_dump($result);
+		var_dump($result);
 		$data['title'] = $result['title'];
 		$data['author'] = $result['author'];
 		$data['content'] = $result['content'];
-		/* 
-		foreach ($result as $row) {	
-			$data['title']= $row['title'];
-			$data['author'] = $row['author'];
-			$data['content'] = $row['content'];
-			//$data['add_time'] = $row['add_time'];
-		} */
+		$data['select_cat'] = $result['cat_name'];
+		//获取文章分类
+		$this->db->select('id,cat_name');
+		$query = $this->db->get('category');
+		$data['cat_list'] = $query->result_array();
+		
 		$this->load->view('edit_article', $data);
 		
 	}

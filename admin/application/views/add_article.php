@@ -14,6 +14,14 @@
 			<ul>
 				<li><label for="">标题</label><input type="text" name="title"/></li>
 				<li><label for="">作者</label><input type="text" name="author"/></li>
+				<li><label for="">分类</label>
+				<select name="cat_list">
+				<option value="0" selected="selected">请选择文章分类!</option>
+				<?php foreach($cat_list as $row) : ?>
+				<option value="<?php echo $row['id'];?>"><?php echo $row['cat_name'];?></option>
+				<?php endforeach; ?>
+				</select>
+				</li>	
 				<li><label for="">正文</label><textarea name="content" id="" cols="100" rows="7"></textarea></li>
 				<li><label for="">&nbsp;&nbsp;</label><input type="submit" name="btn" value="添加"/></li>
 				<input type="hidden" name="act" value="add" />
