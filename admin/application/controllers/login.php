@@ -9,7 +9,7 @@ class login extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 		$this->load->helper('redirect'); //自定义的跳转辅助函数
-		$this->load->database();
+		$this->load->library('session');
 	}
 	/*
 	 * 登录默认页面
@@ -17,7 +17,7 @@ class login extends CI_Controller {
 	public function index() {
 		
 		$data = array();
-		$data['title']="会员登录";
+		$data['title']="后台管理系统登录";
 
 		//生成验证码
 		$this->load->helper('captcha');
@@ -50,10 +50,10 @@ class login extends CI_Controller {
 	 * 保存登录信息
 	 */
 	function check_login() {
+		$this->session->set_userdata('manager', $_POST['captcha']);//添加用户session数据
 		// 首先删除旧的验证码
 		$expiration = time()-600; // 1小时限制
 		$this->db->query("DELETE FROM mc_captcha WHERE captcha_time < ".$expiration); 
-
 		// 然后再看是否有验证码存在:
 		$sql = "SELECT COUNT(*) AS count FROM mc_captcha WHERE word = ? AND ip_address = ? AND captcha_time > ?";
 		$binds = array($_POST['captcha'], $this->input->ip_address(), $expiration);

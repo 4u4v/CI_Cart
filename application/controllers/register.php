@@ -71,7 +71,7 @@ class Register extends CI_Controller {
 			$this->load->helper('redirect'); //自定义的跳转辅助函数
 			$title = "校验验证码";
 			$content = "验证码是".$captcha_word." 不对哦~即将返回操作.....";
-			$target_url = site_url("register/index");;
+			$target_url = site_url("register/index");
 			message($title, $content, $target_url, $delay_time = 3);
 		}
 		return $right_captcha;
@@ -101,12 +101,12 @@ class Register extends CI_Controller {
 				
 				$title = "登录注册成功";
 				$content = "恭喜您，登录注册成功！即将自动进入用户中心.....";
-				$target_url = site_url("user/index");;
+				$target_url = site_url("user/index");
 				message($title, $content, $target_url, $delay_time = 3);
 				} else {
 				$title = "注册失败";
 				$content = "抱歉~，您输入的注册信息不完整或者错误！即将自动返回注册页面.....";
-				$target_url = site_url("register/index");;
+				$target_url = site_url("register/index");
 				message($title, $content, $target_url, $delay_time = 5);
 				}
 			}

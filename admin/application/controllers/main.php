@@ -4,7 +4,7 @@ class Main extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->library('session');
-		$this->load->model('Check_model');
+		$this->load->model('Check');
 		$this->load->helper('form');
 		$this->load->helper('redirect'); //自定义的跳转辅助函数
 	}

@@ -3,7 +3,7 @@
 class Menu extends CI_Controller {
 	function __construct(){
 		parent::__construct();
-		
+		$this->load->model('Check');//载入身份验证模型
 	}
 	
 	/*
