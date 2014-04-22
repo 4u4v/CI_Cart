@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50535
 File Encoding         : 65001
 
-Date: 2014-04-21 16:05:20
+Date: 2014-04-22 11:57:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,20 +23,41 @@ CREATE TABLE `mc_article` (
   `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(32) NOT NULL,
   `author` varchar(12) DEFAULT NULL,
+  `cat_id` int(5) DEFAULT NULL,
   `content` text,
   `add_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_article
 -- ----------------------------
-INSERT INTO `mc_article` VALUES ('1', 'Title01', 'Author', 'This is Content... This is Content... This is Content... This is Content... This is Content... \r\nThis is Content... This is Content... This is Content... This is Content... This is Content... \r\nThis is Content... This is Content... This is Content... This is Content... This is Content... ', '2014-04-08 09:25:52');
-INSERT INTO `mc_article` VALUES ('2', 'Test02zzz', 'Tester02zzz', 'This is Test02zzz Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... ', '2014-04-08 09:26:57');
-INSERT INTO `mc_article` VALUES ('3', '标题03', '作者03', '这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。\r\n这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。\r\n这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。 ', '2014-04-08 09:27:11');
-INSERT INTO `mc_article` VALUES ('5', '标题05', '水木', '这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 \r\n这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 ', '2014-04-08 14:21:19');
-INSERT INTO `mc_article` VALUES ('8', '标题08', '作者08', '这里是测试内容08。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 \r\n这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 ', '2014-04-09 15:38:02');
-INSERT INTO `mc_article` VALUES ('9', '标题09', '作者09', '这里是测试内容09。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 \r\n这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 ', '2014-04-09 15:47:32');
+INSERT INTO `mc_article` VALUES ('1', 'Title01', 'Author', '1', 'This is Content... This is Content... This is Content... This is Content... This is Content... \r\nThis is Content... This is Content... This is Content... This is Content... This is Content... \r\nThis is Content... This is Content... This is Content... This is Content... This is Content... ', '2014-04-08 09:25:52');
+INSERT INTO `mc_article` VALUES ('2', 'Test02zzz', 'Tester02zzz', '2', 'This is Test02zzz Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... This is Test02 Content... ', '2014-04-08 09:26:57');
+INSERT INTO `mc_article` VALUES ('3', '标题03', '作者03', '3', '这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。\r\n这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。\r\n这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。这里是内容。。。 ', '2014-04-08 09:27:11');
+INSERT INTO `mc_article` VALUES ('5', '标题05', '水木', '5', '这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 \r\n这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 ', '2014-04-08 14:21:19');
+INSERT INTO `mc_article` VALUES ('8', '标题08', '作者08', '1', '这里是测试内容08。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 \r\n这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 ', '2014-04-09 15:38:02');
+INSERT INTO `mc_article` VALUES ('9', '标题09', '作者09', '2', '这里是测试内容09。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 \r\n这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 ', '2014-04-09 15:47:32');
+
+-- ----------------------------
+-- Table structure for mc_art_cat
+-- ----------------------------
+DROP TABLE IF EXISTS `mc_art_cat`;
+CREATE TABLE `mc_art_cat` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `cat_name` varchar(32) NOT NULL,
+  `cat_ename` varchar(32) DEFAULT NULL,
+  `sort_id` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of mc_art_cat
+-- ----------------------------
+INSERT INTO `mc_art_cat` VALUES ('1', '分类目录一', 'category1', '1');
+INSERT INTO `mc_art_cat` VALUES ('2', '分类目录二', 'category2', '2');
+INSERT INTO `mc_art_cat` VALUES ('3', '分类目录三', 'category3', '3');
+INSERT INTO `mc_art_cat` VALUES ('5', '分类目录五', 'category5', '5');
 
 -- ----------------------------
 -- Table structure for mc_captcha
@@ -49,32 +70,13 @@ CREATE TABLE `mc_captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=104 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_captcha
 -- ----------------------------
-INSERT INTO `mc_captcha` VALUES ('100', '1398060183', '127.0.0.1', '289514');
-
--- ----------------------------
--- Table structure for mc_category
--- ----------------------------
-DROP TABLE IF EXISTS `mc_category`;
-CREATE TABLE `mc_category` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `cat_name` varchar(32) NOT NULL,
-  `cat_ename` varchar(32) DEFAULT NULL,
-  `sort_id` int(5) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of mc_category
--- ----------------------------
-INSERT INTO `mc_category` VALUES ('1', '分类目录一', 'category1', '1');
-INSERT INTO `mc_category` VALUES ('2', '分类目录二', 'category2', '2');
-INSERT INTO `mc_category` VALUES ('3', '分类目录三', 'category3', '3');
-INSERT INTO `mc_category` VALUES ('5', '分类目录五', 'category5', '5');
+INSERT INTO `mc_captcha` VALUES ('103', '1398134503', '127.0.0.1', '701501');
+INSERT INTO `mc_captcha` VALUES ('102', '1398134491', '127.0.0.1', '291656');
 
 -- ----------------------------
 -- Table structure for mc_manager

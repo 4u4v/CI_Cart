@@ -24,7 +24,7 @@ class Article extends CI_Controller {
 	
 	function add() {
 		$this->db->select('id,cat_name');
-		$query = $this->db->get('category');
+		$query = $this->db->get('art_cat');
 		//echo $this->db->last_query();
 		$data['cat_list'] = $query->result_array();
 		//载入添加文章表单
@@ -68,7 +68,7 @@ class Article extends CI_Controller {
 		$data['select_cat'] = $result['cat_name'];
 		//获取文章分类
 		$this->db->select('id,cat_name');
-		$query = $this->db->get('category');
+		$query = $this->db->get('art_cat');
 		$data['cat_list'] = $query->result_array();
 		
 		$this->load->view('news/edit_article', $data);

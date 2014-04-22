@@ -15,12 +15,12 @@
 		 */		
 		function add_category($data){
 			//使用AR类完成插入操作
-			return $this->db->insert('art_cat',$data);//表名无需加前缀
+			return $this->db->insert('category',$data);//表名无需加前缀
 		}
 		
 		function select_category($id){
 			$this->db->select('title, author, content');
-			$query = $this->db->get_where('art_cat', array('id' => $id) );
+			$query = $this->db->get_where('category', array('id' => $id) );
 			//echo $this->db->last_query();
 			return $query->row_array();
 		}
@@ -28,14 +28,14 @@
 		function update_category($data){
 			$id = $this->input->get('id', TRUE);
 			$this->db->where('id', $id);
-			return $this->db->update('art_cat', $data);
+			return $this->db->update('category', $data);
 		}
 		/*
 		 * @access  public
 		 * @result 以array形式返回查询结果
 		 */
 		function category_list() {
-			$query = $this->db->get('art_cat');
+			$query = $this->db->get('category');
 			return $query->result_array();
 		}
 	}
