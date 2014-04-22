@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>skin/css/base.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/base.css">
 <title>分类管理</title>
 <style type="text/css">
 <!--
@@ -16,7 +16,7 @@
 <!--  内容列表   -->
 <table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px" >
   <tr bgcolor="#E7E7E7">
-    <td height="24" colspan="4" background="<?php echo base_url()?>skin/images/tbg.gif" bgcolor="#E7E7E7">&nbsp;分类列表&nbsp;</td>
+    <td height="24" colspan="4" background="<?php echo base_url()?>images/tbg.gif" bgcolor="#E7E7E7">&nbsp;分类列表&nbsp;</td>
   </tr>
   <tr align="center" bgcolor="#FAFAF1" height="22">
     <td width="8%">栏目排序</td>

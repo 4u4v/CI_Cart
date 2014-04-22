@@ -19,8 +19,8 @@
 		}
 		
 		function select_article($id){
-			$this->db->select('title, author, cat_id,category.cat_name, content');
-			$this->db->join('category', 'category.id = article.cat_id', 'left');
+			$this->db->select('title, author, cat_id,art_cat.cat_name, content');
+			$this->db->join('art_cat', 'art_cat.id = article.cat_id', 'left');
 			$query = $this->db->get_where('article', array('article.id' => $id) );
 			//echo $this->db->last_query();
 			return $query->row_array();
@@ -37,9 +37,9 @@
 		 */
 		function article_list() {
 			//$query = $this->db->get('article');
-			$this->db->select('article.id,article.title,article.author,category.cat_name,article.add_time');
+			$this->db->select('article.id,article.title,article.author,art_cat.cat_name,article.add_time');
 			$this->db->from('article');
-			$this->db->join('category', 'category.id = article.cat_id', 'left');
+			$this->db->join('art_cat', 'art_cat.id = article.cat_id', 'left');
 			$query = $this->db->get();
 			//echo $this->db->last_query();
 			return $query->result_array();

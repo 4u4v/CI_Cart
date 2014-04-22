@@ -3,8 +3,9 @@
 class Category extends CI_Controller {
 	function __construct() {
 		parent::__construct();
-		$this->load->model('Check');
+		$this->load->model('Check');//载入身份验证模型
 		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
+		$this->load->library('form_validation');
 		$this->load->helper('redirect'); //自定义的跳转辅助函数
 		$this->load->model('category_model');
 	}
@@ -14,13 +15,18 @@ class Category extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['title'] = "分类目录列表";
+		$data['title'] = "商品分类列表";
 		//调用模型中category_list方法得到数据
-		$data['category']=$this->category_model->category_list();
+		$data['cates']=$this->category_model->category_list();
 		//加载到视图文件
 		$this->load->view('category', $data);
 	}
 	
+	// 显示添加表单
+	public function add(){
+		$data['cates'] = $this->category_model->list_cate();
+		$this->load->view('cat_add', $data);
+	}
 	/*
 	 * 完成分类的添加
 	 */
@@ -28,6 +34,7 @@ class Category extends CI_Controller {
 		$data['cat_name'] = $this->input->post('name');
 		$data['cat_ename'] = $this->input->post('alias');
 		$data['sort_id'] = $this->input->post('weizhi');
+		
 		if($this->category_model->add_category($data)){
 			$title = "分类添加成功";
 			$content = "分类添加成功！即将自动进入分类列表中心.....";
@@ -39,6 +46,16 @@ class Category extends CI_Controller {
 			$target_url = site_url("category/add");;
 			message($title, $content, $target_url, $delay_time = 3);
 		}
+	}
+	
+	//显示编辑表单
+	public function edit($cat_id){
+		#获取所有的分类信息
+		$data['cates'] = $this->category_model->list_cate();
+		#获取当前这条记录的信息
+		//获取cat_id
+		$data['current_cat'] = $this->category_model->get_cate($cat_id);
+		$this->load->view('cat_edit', $data);
 	}
 	
 	/*

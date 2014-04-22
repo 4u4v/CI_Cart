@@ -34,7 +34,7 @@
         <dt onClick='showHide("items2_1")'><b>产品管理</b></dt>
         <dd style='display:block' class='sitem' id='items2_1'>
           <ul class='sitemu'>
-            <li><a href='<?php echo site_url('cp/index');?>' target='main'>分类管理</a></li>
+            <li><a href='<?php echo site_url('category/index');?>' target='main'>分类管理</a></li>
             <li><a href='<?php echo site_url('cp/add_cp');?>' target='main'>添加产品</a></li>
             <li><a href='<?php echo site_url('cp/cp_list');?>' target='main'>产品管理</a></li>
 
