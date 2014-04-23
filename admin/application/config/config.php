@@ -358,6 +358,33 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
+ 
+/*
+ * ckeditor和ckfinder的配置选项
+ * ckeditorPath是ckeditor目录的位置
+ * ckfinderPath是ckfinder目录的位置
+ * editor_config为ckeditor的标题配置文件
+ */
+$config['ckeditorPath'] = 'ckeditor/';
+$config['ckfinderPath'] = 'ckfinder/';
+$config['editor_config'] = array(
+            'language'=> 'zh-cn',           //默认语言
+            'skin'    => 'kama',            //皮肤方案kama(默认) office2003 v2 三种皮肤
+            'resize_enable' => 'false'      //是否可拖动改变尺寸
+);
+$config['toolbar_Full'] = array(
+    array('Source','-','Save','NewPage','Preview','-','Templates'),     //源码，保存，新建，预览，模版
+    array('TextColor','BGColor'),
+    array('Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'),
+    array('Styles','Format','Font','FontSize'),
+    array('Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'),
+    array('Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'),
+    array('Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'),
+    array('Bold','Italic','Underline','Strike','-','Subscript','Superscript'),
+    array('NumberedList','BulletedList','-','Outdent','Indent','Blockquote'),
+    array('JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'),
+    array('Link','Unlink','Anchor'),
+);
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

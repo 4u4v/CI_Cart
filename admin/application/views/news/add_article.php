@@ -3,9 +3,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>添加文章</title>
-	<style>
-		
-	</style>
+<script charset="utf-8" src="<?php echo base_url(); ?>ckeditor/ckeditor.js" type="text/javascript"></script>
+<script charset="utf-8" src="<?php echo base_url(); ?>ckfinder/ckfinder.js" type="text/javascript"></script>
 </head>
 <body>
 	<form action="<?php echo site_url('news/article/insert')?>" method="post">
@@ -22,7 +21,9 @@
 				<?php endforeach; ?>
 				</select>
 				</li>	
-				<li><label for="">正文</label><textarea name="content" id="" cols="100" rows="7"></textarea></li>
+				<li><label for="">正文</label><?php echo $ck;?>
+				<!-- <textarea name="content" id="" cols="100" rows="7"></textarea>  -->
+				</li>
 				<li><label for="">&nbsp;&nbsp;</label><input type="submit" name="btn" value="添加"/></li>
 				<input type="hidden" name="act" value="add" />
 			</ul>

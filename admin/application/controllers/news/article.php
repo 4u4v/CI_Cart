@@ -6,7 +6,17 @@ class Article extends CI_Controller {
 		$this->load->model('Check');
 		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 		$this->load->helper('redirect'); //自定义的跳转辅助函数
-		#载入article_model，载入之后，可以使用$this->article_model来操作
+		// CKeditor载入
+		$this->load->library ( 'ckeditor' );
+		$this->ckeditor->basePath = base_url () . 'ckeditor/';
+		$this->ckeditor->returnOutput = true;		 
+		// CKFinder载入
+		$this->load->library ( 'ckfinder' );
+		$this->ckfinder->basePath = base_url () . 'ckfinder/';		 
+		// 让CKEditor和CKFinder结合起来
+		$this->ckfinder->SetupCKEditorObject ( $this->ckeditor );
+		
+		//载入article_model，载入之后，可以使用$this->article_model来操作
 		$this->load->model('news/article_model');
 	}
 
@@ -27,7 +37,9 @@ class Article extends CI_Controller {
 		$query = $this->db->get('art_cat');
 		//echo $this->db->last_query();
 		$data['cat_list'] = $query->result_array();
-		//载入添加文章表单
+		// 初始化编辑器
+		$data ['ck'] = $this->ckeditor->editor ( 'content' );
+		// 之后在试图view中，就直接可以 echo $ck; 就可以在页面中看到编辑器了。
 		$this->load->view('news/add_article', $data);
 	}
 	
@@ -70,7 +82,8 @@ class Article extends CI_Controller {
 		$this->db->select('id,cat_name');
 		$query = $this->db->get('art_cat');
 		$data['cat_list'] = $query->result_array();
-		
+		// 初始化CK编辑器
+		$data ['ck'] = $this->ckeditor->editor ( 'content' );
 		$this->load->view('news/edit_article', $data);
 		
 	}
