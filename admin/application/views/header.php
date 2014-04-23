@@ -2,6 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php echo $title;?></title>
-<link type="text/css" rel="stylesheet" href="<?php echo base_url()?>css/common.css"/>
+<title><?php echo isset($title) ? $title : '';?></title>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/base.css">
 </head>

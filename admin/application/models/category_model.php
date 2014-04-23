@@ -61,9 +61,29 @@ class Category_model extends CI_Model {
 		return $query->row_array ();
 	}
 	
-	function update_category($data) {
-		$id = $this->input->get ( 'id', TRUE );
-		$this->db->where ( 'id', $id );
-		return $this->db->update ( 'category', $data );
+	//获取单条分类信息
+	function get_cate($cat_id){
+		//$condition['cat_id'] = $cat_id;
+		$query = $this->db->where('cat_id',$cat_id)->get('category');
+		//返回单条记录
+		return $query->row_array();
+	}
+	
+	//更新分类信息
+	function update_category($data,$cat_id){
+		$condition['cat_id'] = $cat_id;
+		return $this->db->where($condition)->update('category', $data);
+	}
+	
+	//删除分类
+	function delete_cate($cat_id) {
+		$condition['cat_id'] = $cat_id;
+		$query = $this->db->where($condition)->delete('category');
+		if ($query && $this->db->affected_rows() > 0)
+		{
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
