@@ -46,7 +46,7 @@
           <ul class='sitemu'>
             <li><a href='<?php echo site_url('brand/index');?>' target='main'>品牌管理</a></li>
             <li><a href='<?php echo site_url('brand/add');?>' target='main'>添加品牌</a></li>
-            <li><a href='<?php echo site_url('type/index');?>' target='main'>属性管理</a></li>
+            <li><a href='<?php echo site_url('goods_type/index');?>' target='main'>属性管理</a></li>
           </ul>
         </dd>
       </dl>

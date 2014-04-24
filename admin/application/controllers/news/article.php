@@ -23,11 +23,28 @@ class Article extends CI_Controller {
 	/*
 	 * 文章中心默认列表首页
 	 */
-	public function index()
+	public function index($offset = '')
 	{
+		$this->load->library('pagination');//载入分页类
+		//配置分页信息
+		$config['base_url'] = site_url('news/article/index/');//分页链接
+		$config['total_rows'] = $this->article_model->count_article();
+		$config['per_page'] = 3;//每页显示条数
+		$config['uri_segment'] = 4;//URI的哪个部分包含页数
+		//自定义分页链接样式
+		$config['first_link']= '首页';
+		$config['last_link'] = '尾页';
+		$config['prev_link'] = '上一页';
+		$config['next_link'] = '下一页';
+		//初始化分页类
+		$this->pagination->initialize($config);
+		//生成分页信息
+		$data['pageinfo'] = $this->pagination->create_links();
+		
 		$data['title'] = "文章中心列表";
+		$limit = $config['per_page'];
 		//调用article_list方法得到数据
-		$data['article']=$this->article_model->article_list();
+		$data['article']=$this->article_model->article_list($limit, $offset);
 		//加载到视图文件
 		$this->load->view('news/article_list', $data);
 	}
@@ -110,6 +127,9 @@ class Article extends CI_Controller {
 		}
 	}
 	
+	/*
+	 * 删除文章
+	 */
 	function delete($id){
 		$this->db->where('id', $id);
 		$result = $this->db->delete('article');

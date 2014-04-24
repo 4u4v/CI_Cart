@@ -22,4 +22,7 @@
 			</tr>
 	   <?php endforeach; ?>
 	</table>
+	<div id="turn-page">
+    <?php echo $pageinfo;?>
+    </div>
 <?php $this->load->view('footer');?>
