@@ -23,7 +23,7 @@ class Menu extends CI_Controller {
 	{
 		$this->load->view('menu/menu');
 	}
-	function article()
+	function content()
 	{
 		$this->load->view('menu/content');
 	}

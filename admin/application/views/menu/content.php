@@ -28,19 +28,29 @@
         </dd>
       </dl>
       <!-- Item 2 End -->
-      
-      
+          
        <dl class='bitem'>
         <dt onClick='showHide("items2_1")'><b>产品管理</b></dt>
         <dd style='display:block' class='sitem' id='items2_1'>
           <ul class='sitemu'>
             <li><a href='<?php echo site_url('category/index');?>' target='main'>分类管理</a></li>
-            <li><a href='<?php echo site_url('cp/add_cp');?>' target='main'>添加产品</a></li>
-            <li><a href='<?php echo site_url('cp/cp_list');?>' target='main'>产品管理</a></li>
-
+            <li><a href='<?php echo site_url('product/add');?>' target='main'>添加产品</a></li>
+            <li><a href='<?php echo site_url('product/index');?>' target='main'>产品管理</a></li>
           </ul>
         </dd>
       </dl>
+      
+        <dl class='bitem'>
+        <dt onClick='showHide("items2_1")'><b>品牌属性</b></dt>
+        <dd style='display:block' class='sitem' id='items2_1'>
+          <ul class='sitemu'>
+            <li><a href='<?php echo site_url('brand/index');?>' target='main'>品牌管理</a></li>
+            <li><a href='<?php echo site_url('brand/add');?>' target='main'>添加品牌</a></li>
+            <li><a href='<?php echo site_url('type/index');?>' target='main'>属性管理</a></li>
+          </ul>
+        </dd>
+      </dl>
+           
 	  </td>
   </tr>
 </table>

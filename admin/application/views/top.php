@@ -157,7 +157,7 @@ a:link,a:visited {
 		<dd class='img'><a href="javascript:ChangeMenu(0);"><img vspace="3" src="<?php echo base_url()?>images/frame/arrfc.gif" border="0" width="12" height="12" alt="显示/隐藏左框架" title="显示/隐藏左框架" /></a></dd>
 		<dd class='img' style="margin-right:10px;"><a href="javascript:ChangeMenu(1);"><img vspace="5" src="<?php echo base_url()?>images/frame/arrr.gif" border="0" width="5" height="8" alt="增大左框架" title="增大左框架" /></a></dd>
 		<dd><div class='itemsel' id='item1' onMouseMove="mv(this,'move',1);" onMouseOut="mv(this,'o',1);"><a href="<?php echo site_url('menu/left');?>" onclick="changeSel(1)" target="menu">系统设置</a></div></dd>
-		<dd><div class='item' id='item2' onMouseMove="mv(this,'m',2);" onMouseOut="mv(this,'o',2);"><a href="<?php echo site_url('menu/article');?>" onclick="changeSel(2)" target="menu">内容管理</a></div></dd>
+		<dd><div class='item' id='item2' onMouseMove="mv(this,'m',2);" onMouseOut="mv(this,'o',2);"><a href="<?php echo site_url('menu/content');?>" onclick="changeSel(2)" target="menu">内容管理</a></div></dd>
 	
 		<dd><div class='item' id='item4' onMouseMove="mv(this,'m',4);" onMouseOut="mv(this,'o',4);"><a href="<?php echo site_url('menu/qita');?>" onclick="changeSel(4)" target="menu">其他管理</a></div></dd>
 
