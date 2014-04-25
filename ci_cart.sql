@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50535
 File Encoding         : 65001
 
-Date: 2014-04-24 18:08:52
+Date: 2014-04-25 11:57:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -99,12 +99,13 @@ CREATE TABLE `mc_captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=MyISAM AUTO_INCREMENT=117 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=120 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_captcha
 -- ----------------------------
-INSERT INTO `mc_captcha` VALUES ('116', '1398318724', '127.0.0.1', '330245');
+INSERT INTO `mc_captcha` VALUES ('119', '1398393348', '127.0.0.1', '918399');
+INSERT INTO `mc_captcha` VALUES ('118', '1398393332', '127.0.0.1', '170971');
 
 -- ----------------------------
 -- Table structure for mc_category
@@ -137,6 +138,26 @@ INSERT INTO `mc_category` VALUES ('9', '分类目录8', '3', '                  
 INSERT INTO `mc_category` VALUES ('13', '分类目录9', '12', '', '50', '', '1');
 INSERT INTO `mc_category` VALUES ('11', '分类目录111', '2', '           分类描述          ', '50', '0', '1');
 INSERT INTO `mc_category` VALUES ('12', '分类目录四', '0', '', '50', '', '1');
+
+-- ----------------------------
+-- Table structure for mc_dy
+-- ----------------------------
+DROP TABLE IF EXISTS `mc_dy`;
+CREATE TABLE `mc_dy` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `weizhi` int(11) DEFAULT NULL,
+  `content` text,
+  `biaoshi` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of mc_dy
+-- ----------------------------
+INSERT INTO `mc_dy` VALUES ('1', 'Test Title1', '1', '<p>\r\n	This is a Test1...This is a Test1...This is a Test1...This is a Test1...This is a Test1...</p>\r\n', 't1');
+INSERT INTO `mc_dy` VALUES ('2', '测试标题二', '2', '<p>这里是单面测试内容。。。这里是单面测试内容。。。这里是单面测试内容。。。这里是单面测试内容。。。</p>\r\n<p>这里是单面测试内容。。。这里是单面测试内容。。。这里是单面测试内容。。。这里是单面测试内容。。。</p>\r\n<p>这里是单面测试内容。。。这里是单面测试内容。。。这里是单面测试内容。。。这里是单面测试内容。。。这里是单面测试内容。。。这里是单面测试内容。。。这里是单面测试内容。。。这里是单面测试内容。。。这里是单面测试内容。。。</p>', 't2');
+INSERT INTO `mc_dy` VALUES ('0', '测试标题3', '3', '<p>\r\n	这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。</p>\r\n<p>\r\n	这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。</p>\r\n<p>\r\n	这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。这里是测试3内容。。。</p>\r\n', 't3');
 
 -- ----------------------------
 -- Table structure for mc_goods_type
