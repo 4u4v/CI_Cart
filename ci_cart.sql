@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50535
 File Encoding         : 65001
 
-Date: 2014-04-25 11:57:28
+Date: 2014-04-25 17:15:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -40,7 +40,7 @@ INSERT INTO `mc_article` VALUES ('8', '标题08', '作者08', '1', '这里是测
 INSERT INTO `mc_article` VALUES ('9', '标题09', '作者09', '2', '这里是测试内容09。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 \r\n这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 这里是测试内容。。。 ', '2014-04-09 15:47:32');
 INSERT INTO `mc_article` VALUES ('11', '测试标题', '测试者', '3', '<p>\r\n	这里是测试文章内容。。。<a href=\"http://www.4u4v.net\">这里是测试文章内容</a>。。。这里是测试文章内容。。。这里是测试文章内容。。。</p>\r\n<p>\r\n	<span style=\"color: rgb(255, 0, 0);\">这里是测试文章内容。。。这里是测试文章内容。。。这里是测试文章内容。。。这里是测试文章内容。。。</span></p>\r\n<p>\r\n	<strong>这里是测试文章内容。。。这里是测试文章内容。。。这里是测试文章内容。。。这里是测试文章内容。。。</strong></p>\r\n', '2014-04-23 17:55:33');
 INSERT INTO `mc_article` VALUES ('12', '测试标题12', '水木', '3', '<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n', '2014-04-24 16:59:57');
-INSERT INTO `mc_article` VALUES ('13', '测试标题13', '作者13', '3', '<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n', '2014-04-24 17:00:27');
+INSERT INTO `mc_article` VALUES ('13', '测试标题1313', '作者1313', '13', '<p>\r\n	这里是测试内容13。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容13。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容13。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n', '2014-04-24 17:00:27');
 INSERT INTO `mc_article` VALUES ('14', '测试标题14', '水木', '5', '<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>', '2014-04-24 17:00:56');
 INSERT INTO `mc_article` VALUES ('15', '测试标题15', '作者15', '5', '<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n<p>\r\n	这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。这里是测试内容。。。</p>\r\n', '2014-04-24 17:01:24');
 
@@ -99,13 +99,13 @@ CREATE TABLE `mc_captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=MyISAM AUTO_INCREMENT=120 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=122 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_captcha
 -- ----------------------------
-INSERT INTO `mc_captcha` VALUES ('119', '1398393348', '127.0.0.1', '918399');
-INSERT INTO `mc_captcha` VALUES ('118', '1398393332', '127.0.0.1', '170971');
+INSERT INTO `mc_captcha` VALUES ('121', '1398405809', '127.0.0.1', '400393');
+INSERT INTO `mc_captcha` VALUES ('120', '1398405778', '127.0.0.1', '667114');
 
 -- ----------------------------
 -- Table structure for mc_category
@@ -180,6 +180,26 @@ INSERT INTO `mc_goods_type` VALUES ('5', '家电');
 INSERT INTO `mc_goods_type` VALUES ('6', '鞋服');
 INSERT INTO `mc_goods_type` VALUES ('7', '食品');
 INSERT INTO `mc_goods_type` VALUES ('8', '家具');
+
+-- ----------------------------
+-- Table structure for mc_links
+-- ----------------------------
+DROP TABLE IF EXISTS `mc_links`;
+CREATE TABLE `mc_links` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `weizhi` int(11) DEFAULT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of mc_links
+-- ----------------------------
+INSERT INTO `mc_links` VALUES ('1', '博客水木', 'http://www.4u4v.net', '1', 'http://www.4u4v.net/images/logo.gif');
+INSERT INTO `mc_links` VALUES ('2', '水木轩', 'http://www.4u4v.cn', '2', 'http://www.4u4v.cn/logo.gif');
+INSERT INTO `mc_links` VALUES ('3', '水木工作室', 'http://studio.js.cn', '3', 'http://www.4u4v.cn/images/logo.gif');
 
 -- ----------------------------
 -- Table structure for mc_manager

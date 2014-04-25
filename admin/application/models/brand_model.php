@@ -31,26 +31,21 @@ class Brand_model extends CI_Model {
 		return $this->db->insert ( 'brand', $data ); // 表名无需加前缀
 	}
 	
-	function select_brand($id) {
-		$this->db->select ( 'title, author, content' );
+	/*
+	 * 获取某个品牌信息
+	 */
+	function select_brand($brand_id) {
+		$this->db->select ('brand_name,brand_desc,url,logo,sort_order,is_show');
 		$query = $this->db->get_where ( 'brand', array (
-				'id' => $id 
+				'brand_id' => $brand_id 
 		) );
-		// echo $this->db->last_query();
+		echo $this->db->last_query();
 		return $query->row_array ();
 	}
 	
-	//获取单条分类信息
-	function get_cate($cat_id){
-		//$condition['cat_id'] = $cat_id;
-		$query = $this->db->where('cat_id',$cat_id)->get('brand');
-		//返回单条记录
-		return $query->row_array();
-	}
-	
 	//更新分类信息
-	function update_brand($data,$cat_id){
-		$condition['cat_id'] = $cat_id;
+	function update_brand($data,$brand_id){
+		$condition['brand_id'] = $brand_id;
 		return $this->db->where($condition)->update('brand', $data);
 	}
 	

@@ -12,7 +12,6 @@ class Friend_links extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->helper('redirect'); //自定义的跳转辅助函数
 		$this->load->model('links_model');
-		
 	}
 
 	/*

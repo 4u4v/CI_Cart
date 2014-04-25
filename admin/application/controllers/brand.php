@@ -81,38 +81,20 @@ class Brand extends CI_Controller {
 	}
 	
 	//显示编辑表单
-	public function edit($cat_id){
-		#获取所有的分类信息
-		$data['cates'] = $this->brand_model->brand_list();
-		#获取当前这条记录的信息
-		//获取cat_id
-		$data['current_cat'] = $this->brand_model->get_cate($cat_id);
-		$this->load->view('cat_edit', $data);
+	public function edit($brand_id){
+		//获取当前这条记录的信息
+		$data['current_brand'] = $this->brand_model->select_brand($brand_id);
+		var_dump($data['current_brand']);
+		$this->load->view('brand_edit', $data);
 	}
 	
 	/*
 	 * 更新数据
 	 */
 	function update(){
-		$cat_id=$this->input->post('cat_id');
-		//获取该cat_id 分类下的所有后代分类
-		$sub_cate = $this->brand_model->brand_list('$cat_id');
-		//获取这些后代分类的cat_id
-		$sub_ids = array();
-		foreach ($sub_cate as $v){
-			$sub_ids[] = $v['cat_id'];
-		}
-		$parent_id = $this->input->post('parent_id');
-		//判断所选的父分类是否为当前分类或其后代分类
-		if ($parent_id==$cat_id || in_array($parent_id, $sub_ids))
-		{
-			$title = "操作有误";
-			$content = "不能将分类放置到当前分类或其子分类！";
-			$target_url = site_url("brand/edit") . '/'.$cat_id;
-			message($title, $content, $target_url, $delay_time = 3);
-		} else {
+		$brand_id=$this->input->post('brand_id');
 			//更新操作
-			$this->form_validation->set_rules('cat_name','分类名称','trim|required');
+			$this->form_validation->set_rules('brand_name','分类名称','trim|required');
 			if ($this->form_validation->run() == false) {
 				//未通过表单验证
 				$title = "未通过表单验证";
@@ -120,14 +102,23 @@ class Brand extends CI_Controller {
 				$target_url = site_url("brand/edit");;
 				message($title, $content, $target_url, $delay_time = 3);
 			} else {
-			    //通过表单验证时
-				$data['cat_name'] = $this->input->post('cat_name',true);
-				$data['parent_id'] = $this->input->post('parent_id');
-				$data['unit'] = $this->input->post('unit',true);
-				$data['sort_order'] = $this->input->post('sort_order',true);
-				$data['cat_desc'] = $this->input->post('cat_desc',true);
+			    #上传参数配置
+				$config['upload_path'] = './upload/brandlogo/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size'] = '1024';
+				$this->load->library('upload', $config);
+				//处理图片上传
+				if ($this->upload->do_upload('logo')) {
+				# 上传成功，获取文件名
+				$fileinfo = $this->upload->data();//返回上传文件相关信息
+				$data['logo'] = $fileinfo['file_name'];//已上传的文件名
+				//获取表单提交数据
+				$data['brand_name'] = $this->input->post('brand_name');
+				$data['url'] = $this->input->post('url');
+				$data['brand_desc'] = $this->input->post('brand_desc');
+				$data['sort_order'] = $this->input->post('sort_order');
 				$data['is_show'] = $this->input->post('is_show');
-				if($this->brand_model->update_brand($data,$cat_id))
+				if($this->brand_model->update_brand($data,$brand_id))
 				{
 					$title = "";
 					$content = "分类修改成功！即将自动进入分类列表中心.....";
@@ -139,6 +130,11 @@ class Brand extends CI_Controller {
 					$target_url = site_url("brand/index");
 					message($title, $content, $target_url, $delay_time = 2);
 				}
+			} else {
+				$title = "上传失败";
+				$content = $this->upload->display_errors();
+				$target_url = site_url("brand/add");;
+				message($title, $content, $target_url, $delay_time = 5);
 			}
 		}
 	}
