@@ -38,7 +38,7 @@
 			<td align="center"><img src="<?php echo base_url('')?>images/icon/yes.gif" onclick="listTable.toggle(this, 'toggle_show', 1)"></td>
 			<td align="center">
 				<a href="<?php echo site_url('brand/edit').'/'.$brand['brand_id'];?>" title="编辑">编辑</a> |
-				<a href="javascript:;" onclick="listTable.remove(1, '你确认要删除选定的商品品牌吗？')" title="删除">移除</a>
+				<a href="javascript:if(confirm('确实要删除吗?')) location='<?php echo site_url('brand/delete').'/'.$brand['brand_id'];?>'" >删除</a>
 			</td>
 		</tr>
   <?php endforeach;?>

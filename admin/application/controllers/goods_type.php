@@ -11,26 +11,18 @@ class Goods_type extends CI_Controller {
 		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 		$this->load->library('form_validation');
 		$this->load->helper('redirect'); //自定义的跳转辅助函数
+		$this->load->library('pagination');
 		$this->load->model('goodstype_model');
-		
 	}
 
 	public function index($offset = ''){
-		$this->load->library('pagination');
 		#配置分页信息
 		$config['base_url'] = site_url('goods_type/index/');
 		$config['total_rows'] = $this->goodstype_model->count_goodstype();
 		$config['per_page'] = 2;
-		$config['uri_segment'] = 3;
-		#自定义分页链接
-		$config['first_link'] = '首页';
-		$config['last_link'] = '尾页';
-		$config['prev_link'] = '上一页';
-		$config['next_link'] = '下一页';
 
-		#初始化分页类
+		//初始化分页类
 		$this->pagination->initialize($config);
-		
 		#生成分页信息
 		$data['pageinfo'] = $this->pagination->create_links();
 

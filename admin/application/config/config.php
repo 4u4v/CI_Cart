@@ -192,7 +192,7 @@ $config['log_threshold'] = 1;
 | application/logs/ folder. Use a full server path with trailing slash.
 |
 */
-$config['log_path'] = '';
+$config['log_path'] = 'application/logs/';
 
 /*
 |--------------------------------------------------------------------------
@@ -214,7 +214,7 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 | system/cache/ folder.  Use a full server path with trailing slash.
 |
 */
-$config['cache_path'] = 'application/logs/';
+$config['cache_path'] = 'application/cache/';
 
 /*
 |--------------------------------------------------------------------------
@@ -358,7 +358,7 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
- 
+
 /*
  * ckeditor和ckfinder的配置选项
  * ckeditorPath是ckeditor目录的位置

@@ -92,7 +92,12 @@ class Brand extends CI_Controller {
 	 * 更新数据
 	 */
 	function update(){
-		$brand_id=$this->input->post('brand_id');
+		$brand_id = $this->input->post('brand_id');
+		/* if ($this->uri->segment(3) === FALSE) {
+			echo "获取参数ID出错了~"; exit();
+		} else {
+			$brand_id = $this->uri->segment(3);
+		} */
 			//更新操作
 			$this->form_validation->set_rules('brand_name','分类名称','trim|required');
 			if ($this->form_validation->run() == false) {
@@ -121,12 +126,12 @@ class Brand extends CI_Controller {
 				if($this->brand_model->update_brand($data,$brand_id))
 				{
 					$title = "";
-					$content = "分类修改成功！即将自动进入分类列表中心.....";
+					$content = "品牌修改成功！即将自动进入品牌列表中心.....";
 					$target_url = site_url("brand/index");
-					message($title, $content, $target_url, $delay_time = 2);
+					message($title, $content, $target_url, $delay_time = 20);
 				} else {
 					$title = "";
-					$content = "修改分类失败！即将自动进入分类列表中心.....";
+					$content = "品牌分类失败！即将自动进入品牌列表中心.....";
 					$target_url = site_url("brand/index");
 					message($title, $content, $target_url, $delay_time = 2);
 				}
@@ -143,27 +148,18 @@ class Brand extends CI_Controller {
 	 * 删除记录
 	 */
 	function delete(){
-		$cat_id = $this->uri->segment(3);
-		//如果不是底层分类,则不允许删除
-		$sub_cates = $this->brand_model->brand_list($cat_id);
-		if (empty($sub_cates)) {
-			if ($this->brand_model->delete_cate($cat_id)){
-				$title = "分类删除成功";
-				$content = "分类删除成功！即将自动进入分类列表中心.....";
+			$brand_id = $this->uri->segment(3);
+			if ($this->brand_model->delete_brand($brand_id)){
+				$title = "品牌删除成功";
+				$content = "品牌删除成功！即将自动进入品牌列表中心.....";
 				$target_url = site_url("brand/index");
 				message($title, $content, $target_url, $delay_time = 2);
 			} else {
-				$title = "分类删除失败";
-				$content = "分类删除失败！即将自动进入分类列表中心.....";
+				$title = "品牌删除失败";
+				$content = "品牌删除失败！即将自动进入品牌列表中心.....";
 				$target_url = site_url("brand/index");
 				message($title, $content, $target_url, $delay_time = 2);
 			}
-		} else {
-			$title = "操作有误";
-			$content = "该分类下面还包含其他分类，先删除其子分类！即将自动进入分类列表中心.....";
-			$target_url = site_url("brand/index");
-			message($title, $content, $target_url, $delay_time = 5);
-		}
 		
 	}
 	

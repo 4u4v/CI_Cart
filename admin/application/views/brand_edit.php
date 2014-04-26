@@ -20,8 +20,8 @@
     <td><input type="text" name="url" maxlength="60" size="40" value="<?php echo $current_brand['url'];?>"></td>
   </tr>
   <tr>
-    <td class="label"><a href="javascript:showNotice('warn_brandlogo');" title="点击此处查看提示信息">
-        <img src="images/notice.gif" width="16" height="16" border="0" alt="点击此处查看提示信息"></a>品牌LOGO</td>
+    <td class="label"><a href="javascript:showNotice('warn_brandlogo');" title="点击此处查看LOGO">品牌LOGO: 
+        <img src="<?php echo base_url()?>upload/brandlogo/<?php echo $current_brand['logo'];?>" width="100" height="31" border="0" /></a></td>
     <td><input type="file" name="logo" id="logo" size="45">    <br><span class="notice-span" style="display:block" id="warn_brandlogo">
         请上传图片，做为品牌的LOGO！        </span>
     </td>
@@ -41,12 +41,9 @@
   </tr>
   <tr>
     <td colspan="2" align="center"><br>
+      <input type="hidden" name="brand_id" value="<?php echo $current_brand['brand_id'];?>">
       <input type="submit" class="button" value=" 确定 ">
       <input type="reset" class="button" value=" 重置 ">
-      <input type="hidden" name="act" value="insert">
-      <input type="hidden" name="old_brandname" value="">
-      <input type="hidden" name="id" value="">
-      <input type="hidden" name="old_brandlogo" value="">
     </td>
   </tr>
 </tbody>

@@ -35,23 +35,23 @@ class Brand_model extends CI_Model {
 	 * 获取某个品牌信息
 	 */
 	function select_brand($brand_id) {
-		$this->db->select ('brand_name,brand_desc,url,logo,sort_order,is_show');
+		//$this->db->select ('brand_id,brand_name,brand_desc,url,logo,sort_order,is_show');
 		$query = $this->db->get_where ( 'brand', array (
 				'brand_id' => $brand_id 
 		) );
-		echo $this->db->last_query();
+		//echo $this->db->last_query();
 		return $query->row_array ();
 	}
 	
-	//更新分类信息
+	//更新品牌信息
 	function update_brand($data,$brand_id){
 		$condition['brand_id'] = $brand_id;
 		return $this->db->where($condition)->update('brand', $data);
 	}
 	
-	//删除分类
-	function delete_cate($cat_id) {
-		$condition['cat_id'] = $cat_id;
+	//删除品牌
+	function delete_brand($brand_id) {
+		$condition['brand_id'] = $brand_id;
 		$query = $this->db->where($condition)->delete('brand');
 		if ($query && $this->db->affected_rows() > 0)
 		{
