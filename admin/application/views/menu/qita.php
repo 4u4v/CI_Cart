@@ -20,7 +20,7 @@
         <dt onClick='showHide("items2_1")'><b>友情连接</b></dt>
         <dd style='display:block' class='sitem' id='items2_1'>
           <ul class='sitemu'>
-            <li><a href='<?php echo site_url('yqlj/');?>' target='main'>友情连接</a></li>
+            <li><a href='<?php echo site_url('friend_links');?>' target='main'>友情连接</a></li>
           </ul>
         </dd>
       </dl>

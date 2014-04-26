@@ -22,7 +22,7 @@
 				<?php endforeach; ?>
 				</select>
 				</li>
-				<li><label for="">正文</label><textarea name="content" cols="100" rows="7"><?php echo $content;?></textarea></li>
+				<li><label for="">正文</label><?php echo $ck;?></li>
 				<!-- <li><label for="">发布时间</label><input value="<?php echo $add_time;?>" type="text" name="add_time"/></li> -->
 				<li><label for="">&nbsp;&nbsp;</label><input type="submit" name="btn" value="更新"/></li>
 				<input type="hidden" name="act" value="edit" />

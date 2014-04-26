@@ -93,14 +93,13 @@ class Article extends CI_Controller {
 		//var_dump($result);
 		$data['title'] = $result['title'];
 		$data['author'] = $result['author'];
-		$data['content'] = $result['content'];
+		//$data['content'] = $result['content'];
+		$data['ck']=$this->ckeditor->editor('content',$result['content']);//将content内容载入到CK编辑器中
 		$data['select_cat'] = $result['cat_name'];
 		//获取文章分类
 		$this->db->select('id,cat_name');
 		$query = $this->db->get('art_cat');
 		$data['cat_list'] = $query->result_array();
-		// 初始化CK编辑器
-		$data ['ck'] = $this->ckeditor->editor ( 'content' );
 		$this->load->view('news/edit_article', $data);
 		
 	}
