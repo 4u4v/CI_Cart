@@ -92,12 +92,12 @@
   <tr bgcolor="#FFFFFF">
     <td>产品缩略图目录</td>
     <td><?php 
-	if(is_writable("./cphoto")){echo "可写";}else {echo "<span style='color:red'>不可写</span>";}
+	if(is_writable("../admin/upload/images")){echo "可写";}else {echo "<span style='color:red'>不可写</span>";}
 	?></td>
   </tr>
   <tr bgcolor="#FFFFFF">
     <td>编辑器上传目录</td>
-    <td><?php if(is_writable("./js/kindeditor/attached")){echo "可写";}else {echo "<span style='color:red'>不可写</span>";}?></td>
+    <td><?php if(is_writable("../admin/upload")){echo "可写";}else {echo "<span style='color:red'>不可写</span>";}?></td>
   </tr>
 </table>
 <table width="98%" align="center" border="0" cellpadding="4" cellspacing="1" bgcolor="#CBD8AC">
