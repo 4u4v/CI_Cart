@@ -47,3 +47,107 @@ ERROR - 2014-05-05 11:57:17 --> Severity: 8192  --> mysql_pconnect(): The mysql 
 ERROR - 2014-05-05 11:57:17 --> 404 Page Not Found --> product/images
 ERROR - 2014-05-05 11:58:38 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
 ERROR - 2014-05-05 11:58:38 --> Severity: Notice  --> Undefined property: Product::$propduct_model D:\phpStudy\WWW\CI_Cart\admin\application\controllers\product.php 23
+ERROR - 2014-05-05 14:03:14 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:03:18 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:03:33 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:03:36 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:03:36 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:03:37 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:03:38 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:03:40 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:03:44 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:03:44 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:03:44 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 14:42:41 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:42:41 --> Severity: Notice  --> Undefined variable: cates D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 45
+ERROR - 2014-05-05 14:42:41 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 45
+ERROR - 2014-05-05 14:42:41 --> Severity: Notice  --> Undefined variable: brands D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 59
+ERROR - 2014-05-05 14:42:41 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 59
+ERROR - 2014-05-05 14:42:41 --> Severity: Notice  --> Undefined variable: goodstypes D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 184
+ERROR - 2014-05-05 14:42:41 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 184
+ERROR - 2014-05-05 14:42:41 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:42:41 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 14:42:41 --> 404 Page Not Found --> images
+ERROR - 2014-05-05 14:42:42 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:42:42 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 14:42:52 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:42:52 --> Severity: Notice  --> Undefined variable: cates D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 45
+ERROR - 2014-05-05 14:42:52 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 45
+ERROR - 2014-05-05 14:42:52 --> Severity: Notice  --> Undefined variable: brands D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 59
+ERROR - 2014-05-05 14:42:52 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 59
+ERROR - 2014-05-05 14:42:52 --> Severity: Notice  --> Undefined variable: goodstypes D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 184
+ERROR - 2014-05-05 14:42:52 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 184
+ERROR - 2014-05-05 14:42:52 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:42:52 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 14:42:53 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:42:53 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 14:42:53 --> 404 Page Not Found --> images
+ERROR - 2014-05-05 14:43:40 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:43:40 --> Severity: Notice  --> Undefined variable: cates D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 45
+ERROR - 2014-05-05 14:43:40 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 45
+ERROR - 2014-05-05 14:43:40 --> Severity: Notice  --> Undefined variable: brands D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 59
+ERROR - 2014-05-05 14:43:40 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 59
+ERROR - 2014-05-05 14:43:40 --> Severity: Notice  --> Undefined variable: goodstypes D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 184
+ERROR - 2014-05-05 14:43:40 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 184
+ERROR - 2014-05-05 14:43:40 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:43:40 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 14:43:40 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:43:40 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 14:43:41 --> 404 Page Not Found --> images
+ERROR - 2014-05-05 14:51:45 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:51:45 --> Severity: Notice  --> Undefined variable: cates D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 47
+ERROR - 2014-05-05 14:51:45 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 47
+ERROR - 2014-05-05 14:51:45 --> Severity: Notice  --> Undefined variable: brands D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 61
+ERROR - 2014-05-05 14:51:45 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 61
+ERROR - 2014-05-05 14:51:45 --> Severity: Notice  --> Undefined variable: goodstypes D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 186
+ERROR - 2014-05-05 14:51:45 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 186
+ERROR - 2014-05-05 14:51:45 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:51:45 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 14:51:46 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:51:46 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 14:51:46 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:51:46 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 14:51:46 --> 404 Page Not Found --> images
+ERROR - 2014-05-05 14:53:41 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:53:41 --> Severity: Notice  --> Undefined variable: cates D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 47
+ERROR - 2014-05-05 14:53:41 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 47
+ERROR - 2014-05-05 14:53:41 --> Severity: Notice  --> Undefined variable: brands D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 61
+ERROR - 2014-05-05 14:53:41 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 61
+ERROR - 2014-05-05 14:53:41 --> Severity: Notice  --> Undefined variable: goodstypes D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 186
+ERROR - 2014-05-05 14:53:41 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 186
+ERROR - 2014-05-05 14:53:41 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:53:41 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 14:53:41 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 14:53:41 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 14:53:42 --> 404 Page Not Found --> images
+ERROR - 2014-05-05 15:27:39 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 15:27:39 --> Severity: Notice  --> Undefined variable: cates D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 47
+ERROR - 2014-05-05 15:27:39 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 47
+ERROR - 2014-05-05 15:27:39 --> Severity: Notice  --> Undefined variable: brands D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 61
+ERROR - 2014-05-05 15:27:39 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 61
+ERROR - 2014-05-05 15:27:39 --> Severity: Notice  --> Undefined variable: ck D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 126
+ERROR - 2014-05-05 15:27:39 --> Severity: Notice  --> Undefined variable: goodstypes D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 186
+ERROR - 2014-05-05 15:27:39 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 186
+ERROR - 2014-05-05 15:27:39 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 15:27:39 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 15:27:39 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 15:27:39 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 15:27:40 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 15:27:40 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 15:27:40 --> 404 Page Not Found --> images
+ERROR - 2014-05-05 15:29:01 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 15:29:01 --> Severity: Notice  --> Undefined variable: cates D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 47
+ERROR - 2014-05-05 15:29:01 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 47
+ERROR - 2014-05-05 15:29:01 --> Severity: Notice  --> Undefined variable: brands D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 61
+ERROR - 2014-05-05 15:29:01 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 61
+ERROR - 2014-05-05 15:29:01 --> Severity: Notice  --> Undefined variable: goodstypes D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 186
+ERROR - 2014-05-05 15:29:01 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 186
+ERROR - 2014-05-05 15:29:01 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 15:29:01 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 15:29:01 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 15:29:01 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 15:29:01 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 15:29:01 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 15:29:02 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 15:29:02 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 15:29:02 --> 404 Page Not Found --> images

@@ -16,8 +16,8 @@ class Product_model extends CI_Model {
 	 * @access public
 	 * @result 返回所有品牌信息
 	 */
-	function propduct_list() {
-		$query = $this->db->get('propduct');
+	function product_list() {
+		$query = $this->db->get('product');
 		return $query->result_array();
 	}
 
@@ -26,33 +26,33 @@ class Product_model extends CI_Model {
 	 * @prama $data array 
 	 * @return bool 成功返回true，失败返回false
 	 */
-	function add_propduct($data) {
+	function add_product($data) {
 		// 使用AR类完成插入操作
-		return $this->db->insert ( 'propduct', $data ); // 表名无需加前缀
+		return $this->db->insert ( 'product', $data ); // 表名无需加前缀
 	}
 	
 	/*
 	 * 获取某个品牌信息
 	 */
-	function select_propduct($propduct_id) {
-		//$this->db->select ('propduct_id,propduct_name,propduct_desc,url,logo,sort_order,is_show');
-		$query = $this->db->get_where ( 'propduct', array (
-				'propduct_id' => $propduct_id 
+	function select_product($product_id) {
+		//$this->db->select ('product_id,product_name,product_desc,url,logo,sort_order,is_show');
+		$query = $this->db->get_where ( 'product', array (
+				'product_id' => $product_id 
 		) );
 		//echo $this->db->last_query();
 		return $query->row_array ();
 	}
 	
 	//更新品牌信息
-	function update_propduct($data,$propduct_id){
-		$condition['propduct_id'] = $propduct_id;
-		return $this->db->where($condition)->update('propduct', $data);
+	function update_product($data,$product_id){
+		$condition['product_id'] = $product_id;
+		return $this->db->where($condition)->update('product', $data);
 	}
 	
 	//删除品牌
-	function delete_propduct($propduct_id) {
-		$condition['propduct_id'] = $propduct_id;
-		$query = $this->db->where($condition)->delete('propduct');
+	function delete_product($product_id) {
+		$condition['product_id'] = $product_id;
+		$query = $this->db->where($condition)->delete('product');
 		if ($query && $this->db->affected_rows() > 0)
 		{
 			return true;

@@ -10,6 +10,16 @@ class Product extends CI_Controller {
 		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
 		$this->load->library('form_validation');
 		$this->load->helper('redirect'); //自定义的跳转辅助函数
+		// CKeditor载入
+		$this->load->library ( 'ckeditor' );
+		$this->ckeditor->basePath = base_url () . 'ckeditor/';
+		$this->ckeditor->returnOutput = true;
+		// CKFinder载入
+		$this->load->library ( 'ckfinder' );
+		$this->ckfinder->basePath = base_url () . 'ckfinder/';
+		// 让CKEditor和CKFinder结合起来
+		$this->ckfinder->SetupCKEditorObject ( $this->ckeditor );
+		
 		$this->load->model('product_model');
 	}
 
@@ -28,6 +38,8 @@ class Product extends CI_Controller {
 	// 显示添加表单
 	public function add(){
 		$data['title'] = "添加商品";
+		// 初始化编辑器
+		$data ['ck'] = $this->ckeditor->editor ( 'content' );
 		$this->load->view('add_product', $data);
 	}
 	/*
