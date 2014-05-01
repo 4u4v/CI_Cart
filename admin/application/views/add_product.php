@@ -24,7 +24,7 @@
 
     <!-- tab body -->
     <div id="tabbody-div">
-      <form enctype="multipart/form-data" action="<?php echo site_url('goods/insert');?>" method="post" name="theForm">
+      <form enctype="multipart/form-data" action="<?php echo site_url('product/insert');?>" method="post" name="theForm">
         <input type="hidden" name="MAX_FILE_SIZE" value="2097152">
 
 		 <!-- 通用信息 -->
@@ -32,11 +32,11 @@
 			<tbody>
 				<tr>
 					<td class="label">商品名称：</td>
-					<td><input type="text" name="goods_name" value="诺基亚N85" size="30"><span class="require-field">*</span></td>
+					<td><input type="text" name="goods_name" value="商品00" size="30"><span class="require-field">*</span></td>
 				</tr>
 				<tr>
 					<td class="label">商品货号： </td>
-					<td><input type="text" name="goods_sn" value="ECS000032" size="20" onblur="checkGoodsSn(this.value,'32')"><span id="goods_sn_notice"></span><br>
+					<td><input type="text" name="goods_sn" value="P00" size="20" onblur="checkGoodsSn(this.value,'32')"><span id="goods_sn_notice"></span><br>
 					<span class="notice-span" style="display:block" id="noticeGoodsSN">如果您不输入商品货号，系统将自动生成一个唯一的货号。</span></td>
 			</tr>
 			<tr>
@@ -99,14 +99,14 @@
           <tr id="promote_4">
             <td class="label" id="promote_5">促销日期：</td>
             <td id="promote_6">
-              <input name="promote_start_time" type="text" id="promote_start_date" size="12" value="2009-06-01" readonly="readonly"><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('promote_start_date', '%Y-%m-%d', false, false, 'selbtn1');" value="选择" class="button"> - <input name="promote_end_time" type="text" id="promote_end_date" size="12" value="2014-11-30" readonly="readonly"><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('promote_end_date', '%Y-%m-%d', false, false, 'selbtn2');" value="选择" class="button">
+              <input name="promote_start_time" type="text" id="promote_start_date" size="12" value="2012-05-01" readonly="readonly"><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('promote_start_date', '%Y-%m-%d', false, false, 'selbtn1');" value="选择" class="button"> - <input name="promote_end_time" type="text" id="promote_end_date" size="12" value="2014-12-30" readonly="readonly"><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('promote_end_date', '%Y-%m-%d', false, false, 'selbtn2');" value="选择" class="button">
             </td>
           </tr>
           <tr>
             <td class="label">上传商品图片：</td>
             <td>
               <input type="file" name="goods_img" size="35">
-                              <a href="goods.php?act=show_image&amp;img_url=images/200905/goods_img/32_G_1242110760868.jpg" target="_blank"><img src="images/yes.gif" border="0"></a>
+                              <a href="product.php?act=show_image&amp;img_url=images/200905/goods_img/32_G_1242110760868.jpg" target="_blank"><img src="<?php echo base_url();?>/images/yes.gif" border="0"></a>
                             <br><input type="text" size="40" value="商品图片外部URL" style="color:#aaa;" onfocus="if (this.value == '商品图片外部URL'){this.value='http://';this.style.color='#000';}" name="goods_img_url">
             </td>
           </tr>
@@ -161,7 +161,7 @@
           </tr>
           <tr>
             <td class="label">商品关键词：</td>
-            <td><input type="text" name="keywords" value="2008年10月 GSM,850,900,1800,1900 黑色" size="40"> 用空格分隔</td>
+            <td><input type="text" name="keywords" value="2014年,新品,促销,优惠" size="40"> 用空格分隔</td>
           </tr>
           <tr>
             <td class="label">商品简单描述：</td>
@@ -169,7 +169,8 @@
           </tr>
           <tr>
             <td class="label">
-            <a href="javascript:showNotice('noticeSellerNote');" title="点击此处查看提示信息"><img src="images/notice.gif" width="16" height="16" border="0" alt="点击此处查看提示信息"></a> 商家备注： </td>
+            <a href="javascript:showNotice('noticeSellerNote');" title="点击此处查看提示信息">
+            <img src="<?php echo base_url();?>/images/notice.gif" width="16" height="16" border="0" alt="点击此处查看提示信息"></a> 商家备注： </td>
             <td><textarea name="seller_note" cols="40" rows="3"></textarea><br>
             <span class="notice-span" style="display:block" id="noticeSellerNote">仅供商家自己看的信息</span></td>
           </tr>
@@ -225,7 +226,7 @@
         </tbody></table>
 
         <div class="button-div">
-          <input type="hidden" name="goods_id" value="32">
+          <input type="hidden" name="goods_id" value="">
                     <input type="submit" value=" 确定 " class="button">
           <input type="reset" value=" 重置 " class="button">
         </div>

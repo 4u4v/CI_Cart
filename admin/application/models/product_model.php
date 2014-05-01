@@ -28,7 +28,7 @@ class Product_model extends CI_Model {
 	 */
 	function add_product($data) {
 		// 使用AR类完成插入操作
-		return $this->db->insert ( 'product', $data ); // 表名无需加前缀
+		return $this->db->insert ( 'goods', $data ); // 表名无需加前缀
 	}
 	
 	/*

@@ -151,3 +151,59 @@ ERROR - 2014-05-05 15:29:01 --> 404 Page Not Found --> product/images
 ERROR - 2014-05-05 15:29:02 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
 ERROR - 2014-05-05 15:29:02 --> 404 Page Not Found --> product/images
 ERROR - 2014-05-05 15:29:02 --> 404 Page Not Found --> images
+ERROR - 2014-05-05 16:01:20 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:01:21 --> Severity: Notice  --> Undefined property: Product::$goodstype_model D:\phpStudy\WWW\CI_Cart\admin\application\controllers\product.php 42
+ERROR - 2014-05-05 16:04:08 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:04:28 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:11:27 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:11:29 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:15:43 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:15:44 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:15:44 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:15:44 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:15:44 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:15:45 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:15:45 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:15:45 --> 404 Page Not Found --> images
+ERROR - 2014-05-05 16:16:19 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:16:19 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:16:19 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:16:19 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:16:19 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:16:19 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:16:19 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:16:19 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:16:19 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:16:20 --> 404 Page Not Found --> images
+ERROR - 2014-05-05 16:25:01 --> 404 Page Not Found --> goods
+ERROR - 2014-05-05 16:25:08 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:25:08 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:25:08 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:25:08 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:25:09 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:25:09 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:25:09 --> 404 Page Not Found --> images
+ERROR - 2014-05-05 16:39:31 --> 404 Page Not Found --> goods
+ERROR - 2014-05-05 16:39:39 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:39:39 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:39:40 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:39:40 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:39:41 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:39:41 --> Severity: Notice  --> Undefined variable: base_url D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 172
+ERROR - 2014-05-05 16:39:41 --> 404 Page Not Found --> images
+ERROR - 2014-05-05 16:39:41 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:39:41 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:39:41 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:39:41 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:39:42 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:39:42 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:39:43 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:39:43 --> Severity: Notice  --> Undefined variable: base_url D:\phpStudy\WWW\CI_Cart\admin\application\views\add_product.php 172
+ERROR - 2014-05-05 16:39:43 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:39:43 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:39:43 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:39:43 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:39:43 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:39:43 --> 404 Page Not Found --> product/images
+ERROR - 2014-05-05 16:39:44 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\CI_Cart\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2014-05-05 16:39:44 --> 404 Page Not Found --> product/images
