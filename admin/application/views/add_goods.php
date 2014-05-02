@@ -24,7 +24,7 @@
 
     <!-- tab body -->
     <div id="tabbody-div">
-      <form enctype="multipart/form-data" action="<?php echo site_url('product/insert');?>" method="post" name="theForm">
+      <form enctype="multipart/form-data" action="<?php echo site_url('goods/insert');?>" method="post" name="theForm">
         <input type="hidden" name="MAX_FILE_SIZE" value="2097152">
 
 		 <!-- 通用信息 -->
@@ -123,7 +123,7 @@
         <!-- 详细描述 -->
         <table width="90%" id="detail-table" style="display: none;">
           <tbody><tr>
-            <td><input type="hidden" id="goods_desc" name="goods_desc" value="" style="display:none"><input type="hidden" id="goods_desc___Config" value="" style="display:none"><?php echo $ck;?></td>
+            <td><?php echo $ck;?></td>
           </tr>
         </tbody></table>
 
