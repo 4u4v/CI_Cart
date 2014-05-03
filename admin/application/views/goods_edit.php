@@ -24,7 +24,7 @@
 
     <!-- tab body -->
     <div id="tabbody-div">
-      <form enctype="multipart/form-data" action="<?php echo site_url('goods/insert');?>" method="post" name="theForm">
+      <form enctype="multipart/form-data" action="<?php echo site_url('goods/update');?>" method="post" name="theForm">
         <input type="hidden" name="MAX_FILE_SIZE" value="2097152">
 
 		 <!-- 通用信息 -->
@@ -32,11 +32,11 @@
 			<tbody>
 				<tr>
 					<td class="label">商品名称：</td>
-					<td><input type="text" name="goods_name" value="商品00" size="30"><span class="require-field">*</span></td>
+					<td><input type="text" name="goods_name" value="<?php echo $current_goods['goods_name'];?>" size="30"><span class="require-field">*</span></td>
 				</tr>
 				<tr>
 					<td class="label">商品货号： </td>
-					<td><input type="text" name="goods_sn" value="P00" size="20" onblur="checkGoodsSn(this.value,'32')"><span id="goods_sn_notice"></span><br>
+					<td><input type="text" name="goods_sn" value="<?php echo $current_goods['goods_sn'];?>" size="20" onblur="checkGoodsSn(this.value,'32')"><span id="goods_sn_notice"></span><br>
 					<span class="notice-span" style="display:block" id="noticeGoodsSN">如果您不输入商品货号，系统将自动生成一个唯一的货号。</span></td>
 			</tr>
 			<tr>
@@ -76,38 +76,39 @@
 			</tr>
             <tr>
 				<td class="label">本店售价：</td>
-				<td><input type="text" name="shop_price" value="3010.00" size="20" onblur="priceSetted()">
+				<td><input type="text" name="shop_price" value="<?php echo $current_goods['shop_price'];?>" size="20" onblur="priceSetted()">
 				<input type="button" value="按市场价计算" onclick="marketPriceSetted()">
 				<span class="require-field">*</span></td>
 			</tr>
 			<tr>
             <td class="label">会员价格：</td>
-            <td><input type="text" name="user_price" value="3010.00" size="20" onblur="priceSetted()"></td>
+            <td><input type="text" name="user_price" value="<?php echo $current_goods['shop_price'];?>" size="20" onblur="priceSetted()"></td>
           </tr>
 
           <tr>
             <td class="label">市场售价：</td>
-            <td><input type="text" name="market_price" value="3612.00" size="20">
+            <td><input type="text" name="market_price" value="<?php echo $current_goods['market_price'];?>" size="20">
               <input type="button" value="取整数" onclick="integral_market_price()">
             </td>
           </tr>
 
           <tr>
             <td class="label"><label for="is_promote"><input type="checkbox" id="is_promote" name="is_promote" value="1" checked="checked" onclick="handlePromote(this.checked);"> 促销价：</label></td>
-            <td id="promote_3"><input type="text" id="promote_1" name="promote_price" value="2750.00" size="20"></td>
+            <td id="promote_3"><input type="text" id="promote_1" name="promote_price" value="<?php echo $current_goods['promote_price'];?>" size="20"></td>
           </tr>
           <tr id="promote_4">
             <td class="label" id="promote_5">促销日期：</td>
             <td id="promote_6">
               <input name="promote_start_time" type="text" id="promote_start_date" size="12" value="2012-05-01" readonly="readonly"><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('promote_start_date', '%Y-%m-%d', false, false, 'selbtn1');" value="选择" class="button"> 
-              - <input name="promote_end_time" type="text" id="promote_end_date" size="12" value="2014-12-30" readonly="readonly"><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('promote_end_date', '%Y-%m-%d', false, false, 'selbtn2');" value="选择" class="button">
+              - <input name="promote_end_time" type="text" id="promote_end_date" size="12" value="2014-12-30" readonly="readonly">
+              <input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('promote_end_date', '%Y-%m-%d', false, false, 'selbtn2');" value="选择" class="button">
             </td>
           </tr>
           <tr>
             <td class="label">上传商品图片：</td>
             <td>
               <input type="file" name="goods_img" size="35">
-                              <a href="product.php?act=show_image&amp;img_url=images/200905/goods_img/32_G_1242110760868.jpg" target="_blank"><img src="<?php echo base_url();?>/images/yes.gif" border="0"></a>
+                              <a href="<?php echo base_url();?>.'/upload/goods/'.$current_goods['goods_img'];?>" target="_blank"><img src="<?php echo base_url();?>/images/icon/yes.gif" border="0"></a>
                             <br><input type="text" size="40" value="商品图片外部URL" style="color:#aaa;" onfocus="if (this.value == '商品图片外部URL'){this.value='http://';this.style.color='#000';}" name="goods_img_url">
             </td>
           </tr>
@@ -115,7 +116,7 @@
             <td class="label"> 上传商品缩略图：</td>
             <td id="auto_thumb_3">
               <input type="file" name="goods_thumb" size="35" disabled="">
-                              <a href="goods.php?act=show_image&amp;img_url=images/200905/thumb_img/32_thumb_G_1242110760196.jpg" target="_blank"><img src="images/yes.gif" border="0"></a>
+                            <a href="<?php echo base_url();?>.'/upload/goods/'.$current_goods['goods_thumb'];?>" target="_blank"><img src="<?php echo base_url();?>/images/icon/yes.gif" border="0"></a>
                             <br><input type="text" size="40" value="商品缩略图外部URL" style="color:#aaa;" onfocus="if (this.value == '商品缩略图外部URL'){this.value='http://';this.style.color='#000';}" name="goods_thumb_url" disabled="">
                             <br><label for="auto_thumb"><input type="checkbox" id="auto_thumb" name="auto_thumb" checked="true" value="1" onclick="handleAutoThumb(this.checked)">自动生成商品缩略图</label>            </td>
           </tr>
@@ -136,7 +137,7 @@
           </tr>
                               <tr>
             <td class="label"><a href="javascript:showNotice('noticeStorage');" title="点击此处查看提示信息"><img src="images/notice.gif" width="16" height="16" border="0" alt="点击此处查看提示信息"></a> 商品库存数量：</td>
-            <td><input type="text" name="goods_number" value="200" size="20"><br>
+            <td><input type="text" name="goods_number" value="<?php echo $current_goods['goods_number'];?>" size="20"><br>
             <span class="notice-span" style="display:block" id="noticeStorage">库存在商品为虚货或商品存在货品时为不可编辑状态，库存数值取决于其虚货数量或货品数量</span></td>
           </tr>
           <tr>
@@ -165,7 +166,7 @@
           </tr>
           <tr>
             <td class="label">商品简单描述：</td>
-            <td><textarea name="goods_brief" cols="40" rows="3"></textarea></td>
+            <td><textarea name="goods_brief" cols="40" rows="3"><?php echo $current_goods['goods_brief'];?></textarea></td>
           </tr>
           <tr>
             <td class="label">
@@ -226,7 +227,7 @@
         </tbody></table>
 
         <div class="button-div">
-          <input type="hidden" name="goods_id" value="">
+          <input type="hidden" name="goods_id" value="<?php echo $current_goods['goods_id'];?>">
                     <input type="submit" value=" 确定 " class="button">
           <input type="reset" value=" 重置 " class="button">
         </div>

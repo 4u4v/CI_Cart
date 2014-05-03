@@ -32,7 +32,7 @@ class Goods extends CI_Controller {
 	{
 		$data['title'] = "商品列表";
 		//调用模型中goods_list方法得到数据
-		$data['goods']=$this->goods_model->goods_list();
+		$data['goods_list']=$this->goods_model->goods_list();
 		//加载到视图文件
 		$this->load->view('goods_list', $data);
 	}
@@ -63,8 +63,8 @@ class Goods extends CI_Controller {
 		$data['market_price'] = $this->input->post('market_price');
 		$data['shop_price'] = $this->input->post('shop_price');
 		$data['promote_price'] = $this->input->post('promote_price');
-		$data['promote_start_time'] = strtotime($this->input->post('goods_name'));
-		$data['promote_end_time'] = strtotime($this->input->post('goods_name'));
+		$data['promote_start_time'] = $this->input->post('promote_start_time');
+		$data['promote_end_time'] = $this->input->post('promote_end_time');
 		$data['goods_number'] = $this->input->post('goods_number');
 		$data['goods_brief'] = $this->input->post('goods_brief');
 		$data['is_best'] = $this->input->post('is_best');
@@ -97,28 +97,17 @@ class Goods extends CI_Controller {
 
 				if ($this->goods_model->add_goods($data)) {
 					// 添加商品成功,获取属性并插入到商品属性关联表中
-					$attr_ids = $this->input->post('attr_id_list');
-					$attr_values = $this->input->post('attr_value_list');
-					foreach ($attr_values as $k => $v) {
-						if (!empty($v)) {
-							//$data2['goods_id'] = $goods_id;
-							$data2['attr_id'] = $attr_ids[$k];
-							$data2['attr_value'] = $v;
-							//完成插入
-							//$this->db->insert('goods_attr',$data2);
-						}	
-					}
-					print_r($data);
+					//print_r($data);
 					$title = "商品添加成功";
 					$content = "商品添加成功！即将自动进入商品列表中心.....";
 					$target_url = site_url("goods/index");
-					message($title, $content, $target_url, $delay_time = 30);
+					message($title, $content, $target_url, $delay_time = 3);
 				} else {
 					# 失败
 					$title = "商品添加失败";
 					$content = "商品添加失败！即将自动进入商品列表中心.....";
 					$target_url = site_url("goods/index");
-					message($title, $content, $target_url, $delay_time = 30);
+					message($title, $content, $target_url, $delay_time = 3);
 				}
 				
 			} else {
@@ -126,7 +115,7 @@ class Goods extends CI_Controller {
 				$title = "商品图缩略失败";
 				$content = "商品图缩略失败！".$this->image_lib->display_errors();
 				$target_url = site_url("goods/add");
-				message($title, $content, $target_url, $delay_time = 50);
+				message($title, $content, $target_url, $delay_time = 5);
 			}
 
 		} else {
@@ -134,15 +123,25 @@ class Goods extends CI_Controller {
 			$title = "产品图片上传失败";
 			$content = "产品图片上传失败！".$this->upload->display_errors();
 			$target_url = site_url("goods/add");
-			message($title, $content, $target_url, $delay_time = 50);
+			message($title, $content, $target_url, $delay_time = 5);
 		}
 	}
 	
 	//显示编辑表单
 	public function edit($goods_id){
+		//获取商品类型信息
+		$data['goodstypes'] = $this->goodstype_model->get_all_types();
+		//获取分类信息
+		$data['cates'] = $this->category_model->category_list();
+		//获取品牌信息
+		$data['brands'] = $this->brand_model->brand_list();
+		$data['goods_id']= $id = $this->input->get('goods_id', TRUE);
+		$result=$this->goods_model->select_goods($goods_id);
+		//将content内容载入到CK编辑器中
+		$data['ck']=$this->ckeditor->editor('goods_desc',$result['goods_desc']);
 		//获取当前这条记录的信息
 		$data['current_goods'] = $this->goods_model->select_goods($goods_id);
-		var_dump($data['current_goods']);
+		//var_dump($data['current_goods']);
 		$this->load->view('goods_edit', $data);
 	}
 	
@@ -150,7 +149,7 @@ class Goods extends CI_Controller {
 	 * 更新数据
 	 */
 	function update(){
-		$goods_id = $this->input->post('goods_id');
+		$goods_id = $this->input->get('goods_id');
 		/* if ($this->uri->segment(3) === FALSE) {
 			echo "获取参数ID出错了~"; exit();
 		} else {
