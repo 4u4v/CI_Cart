@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50535
 File Encoding         : 65001
 
-Date: 2014-05-07 11:59:51
+Date: 2014-05-07 18:11:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -99,12 +99,13 @@ CREATE TABLE `mc_captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=MyISAM AUTO_INCREMENT=144 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=147 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_captcha
 -- ----------------------------
-INSERT INTO `mc_captcha` VALUES ('143', '1399427264', '127.0.0.1', '929632');
+INSERT INTO `mc_captcha` VALUES ('146', '1399444255', '127.0.0.1', '208078');
+INSERT INTO `mc_captcha` VALUES ('145', '1399444243', '127.0.0.1', '166027');
 
 -- ----------------------------
 -- Table structure for `mc_category`
@@ -173,8 +174,8 @@ CREATE TABLE `mc_goods` (
   `market_price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '市场价',
   `shop_price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '本店价格',
   `promote_price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '促销价格',
-  `promote_start_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '促销起始时间',
-  `promote_end_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '促销截止时间',
+  `promote_start_time` char(10) NOT NULL DEFAULT '0' COMMENT '促销起始时间',
+  `promote_end_time` char(10) NOT NULL DEFAULT '0' COMMENT '促销截止时间',
   `goods_img` varchar(50) NOT NULL DEFAULT '' COMMENT '商品图片',
   `goods_thumb` varchar(50) NOT NULL DEFAULT '' COMMENT '商品缩略图',
   `goods_number` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT '商品库存',
@@ -190,14 +191,17 @@ CREATE TABLE `mc_goods` (
   KEY `cat_id` (`cat_id`),
   KEY `brand_id` (`brand_id`),
   KEY `type_id` (`type_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mc_goods
 -- ----------------------------
-INSERT INTO `mc_goods` VALUES ('1', 'P001', '商品001', '', '商品详细描述。。。商品详细描述。。。', '7', '3', '2612.00', '2010.00', '1750.00', '0', '0', '149838_425032.jpg', '149838_425032_thumb.jpg', '4', '0', '0', '0', '1', '1', '1', '0', '0');
-INSERT INTO `mc_goods` VALUES ('2', 'P002', '商品002', '', '商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。', '2', '1', '2000.00', '1999.00', '1750.00', '0', '0', 'home-nfc.jpg', 'home-nfc_thumb.jpg', '888', '0', '0', '0', '1', '1', '1', '0', '0');
-INSERT INTO `mc_goods` VALUES ('3', 'P003', '商品003', '商品简单描述', '<p>\r\n	商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。</p>\r\n<p>\r\n	<strong>商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。</strong></p>\r\n<p>\r\n	商品详细描述。。。商品详细描述。。。商品详细描述。。。<span style=\"color: rgb(255, 0, 0);\">商品详细描述。。。商品详细描述。。。商品详细描述。。。</span>商品详细描述。。。商品详细描述。。。商品详细描述。。。</p>\r\n', '8', '2', '3662.00', '3060.00', '2750.00', '0', '0', '201402_347.jpg', '201402_347_thumb.jpg', '888', '0', '0', '0', '1', '1', '1', '0', '0');
+INSERT INTO `mc_goods` VALUES ('1', 'P001', '商品001', '', '商品详细描述。。。商品详细描述。。。', '7', '3', '2612.00', '2010.00', '1750.00', '2012-05-01', '2014-12-30', '149838_425032.jpg', '149838_425032_thumb.jpg', '888', '0', '0', '0', '1', '1', '1', '0', '0');
+INSERT INTO `mc_goods` VALUES ('2', 'P002', '商品002', '', '商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。', '2', '1', '2000.00', '1999.00', '1750.00', '2012-05-01', '2014-12-30', 'home-nfc.jpg', 'home-nfc_thumb.jpg', '888', '0', '0', '0', '1', '1', '1', '0', '0');
+INSERT INTO `mc_goods` VALUES ('3', 'P003', '商品003', '商品简单描述', '<p>\r\n	商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。</p>\r\n<p>\r\n	<strong>商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。</strong></p>\r\n<p>\r\n	商品详细描述。。。商品详细描述。。。商品详细描述。。。<span style=\"color: rgb(255, 0, 0);\">商品详细描述。。。商品详细描述。。。商品详细描述。。。</span>商品详细描述。。。商品详细描述。。。商品详细描述。。。</p>\r\n', '8', '2', '3662.00', '3060.00', '2750.00', '2012-05-01', '2014-12-30', '201402_347.jpg', '201402_347_thumb.jpg', '888', '0', '0', '0', '1', '1', '1', '0', '0');
+INSERT INTO `mc_goods` VALUES ('4', 'P004', '商品004', '商品简单描述', '<p>\r\n	商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。</p>\r\n<p>\r\n	商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。</p>\r\n<p>\r\n	商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。商品4详细描述。。。</p>\r\n', '4', '5', '1612.00', '1010.00', '750.00', '2012-05-01', '2014-12-30', '3y3.jpg', '3y3_thumb.jpg', '100', '0', '0', '0', '1', '1', '1', '0', '0');
+INSERT INTO `mc_goods` VALUES ('5', 'XM2A', '小米手机2A', '小米2A', '<p>\r\n	小米详细描述。。。小米详细描述。。。小米详细描述。。。小米详细描述。。。小米详细描述。。。</p>\r\n<p>\r\n	<strong>小米详细描述。。。小米详细描述。。。小米详细描述。。。小米详细描述。。。小米详细描述。。。</strong></p>\r\n<p>\r\n	小米详细描述。。。小米详细描述。。。小米详细描述。。。<span style=\"color: rgb(255, 0, 0);\">小米详细描述。。。小米详细描述。。。小米详细描述。。。小米详细描述。。。</span>小米详细描述。。。小米详细描述。。。小米详细描述。。。</p>\r\n', '7', '1', '2000.00', '1999.00', '1499.00', '2012-05-01', '2014-12-30', 'ce9twB2ZsFHU.jpg', 'ce9twB2ZsFHU_thumb.jpg', '888', '0', '0', '0', '1', '1', '1', '0', '0');
+INSERT INTO `mc_goods` VALUES ('6', 'P006', '商品006', '', '<p>\r\n	商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。商品详细描述。。。</p>\r\n', '7', '6', '612.00', '810.00', '750.00', '2012-05-01', '2014-12-30', '3y31.jpg', '3y31_thumb.jpg', '888', '0', '0', '0', '1', '1', '1', '0', '0');
 
 -- ----------------------------
 -- Table structure for `mc_goods_type`
