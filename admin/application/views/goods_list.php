@@ -46,6 +46,9 @@
 					</td>
 				</tr>
 			<?php endforeach; ?>
+			<tr align="right" bgcolor="#EEF4EA">
+    		<td height="36" colspan="11" align="center"> <?php echo $pageinfo;?> </td>
+  			</tr>
   </tbody>
  </table>
  </div>

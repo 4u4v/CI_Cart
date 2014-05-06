@@ -2,7 +2,7 @@
 if (! defined ( 'BASEPATH' ))
 	exit ( 'No direct script access allowed' );
 /*
- * 品牌数据模型
+ * 商品数据模型
  * @Author 水木
  */
 class goods_model extends CI_Model {
@@ -13,14 +13,23 @@ class goods_model extends CI_Model {
 	}
 	
 	/*
-	 * @access public
-	 * @result 返回所有品牌信息
-	 */
-	function goods_list() {
-		$query = $this->db->get('goods');
+	 * 获取分页数据
+	*/
+	function goods_list($limit,$offset) {
+		$this->db->select('goods_id,goods_name,goods_sn,shop_price,goods_number,click_count');
+		$this->db->from('goods');
+		$this->db->limit($limit,$offset);
+		$this->db->order_by("goods_id", "desc");
+		$query = $this->db->get();
+		//echo $this->db->last_query();
 		return $query->result_array();
 	}
-
+	
+	//统计文章记录总数
+	function count_goods(){
+		return $this->db->count_all('goods');
+	}
+	
 	/*
 	 * @access public 
 	 * @prama $data array 
@@ -32,7 +41,7 @@ class goods_model extends CI_Model {
 	}
 	
 	/*
-	 * 获取某个品牌信息
+	 * 获取某个商品信息
 	 */
 	function select_goods($goods_id) {
 		//$this->db->select ('goods_id,goods_name,goods_desc,url,logo,sort_order,is_show');
@@ -43,13 +52,13 @@ class goods_model extends CI_Model {
 		return $query->row_array ();
 	}
 	
-	//更新品牌信息
+	//更新商品信息
 	function update_goods($data,$goods_id){
 		$condition['goods_id'] = $goods_id;
 		return $this->db->where($condition)->update('goods', $data);
 	}
 	
-	//删除品牌
+	//删除商品
 	function delete_goods($goods_id) {
 		$condition['goods_id'] = $goods_id;
 		$query = $this->db->where($condition)->delete('goods');

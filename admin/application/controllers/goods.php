@@ -28,11 +28,28 @@ class Goods extends CI_Controller {
 	/*
 	 * 默认分类列表首页
 	 */
-	public function index()
+	public function index ($offset = '')
 	{
+		$this->load->library('pagination');//载入分页类
+		//配置分页信息
+		$config['base_url'] = site_url('goods/index/');//分页链接
+		$config['total_rows'] = $this->goods_model->count_goods();
+		$config['per_page'] = 3;//每页显示条数
+		$config['use_page_numbers'] = TRUE;//显示的是当前页码
+		//自定义分页链接样式
+		$config['first_link']= '首页';
+		$config['last_link'] = '尾页';
+		$config['prev_link'] = '上一页';
+		$config['next_link'] = '下一页';
+		//初始化分页类
+		$this->pagination->initialize($config);
+		//生成分页信息
+		$data['pageinfo'] = $this->pagination->create_links();
+		
 		$data['title'] = "商品列表";
+		$limit = $config['per_page'];
 		//调用模型中goods_list方法得到数据
-		$data['goods_list']=$this->goods_model->goods_list();
+		$data['goods_list']=$this->goods_model->goods_list($limit, $offset);
 		//加载到视图文件
 		$this->load->view('goods_list', $data);
 	}
@@ -191,13 +208,13 @@ class Goods extends CI_Controller {
 					$title = "缩略失败";
 					$content = $this->image_lib->display_errors();
 					$target_url = site_url("goods/add");;
-					message($title, $content, $target_url, $delay_time = 50);
+					message($title, $content, $target_url, $delay_time = 5);
 				    }
 				} else {
 				$title = "上传失败";
 				$content = $this->upload->display_errors();
 				$target_url = site_url("goods/add");;
-				message($title, $content, $target_url, $delay_time = 50);
+				message($title, $content, $target_url, $delay_time = 5);
 				}
 				//获取表单提交数据
 				$data['goods_desc'] = $this->input->post('goods_desc');
@@ -221,12 +238,12 @@ class Goods extends CI_Controller {
 					$title = "";
 					$content = "商品修改成功！即将自动进入商品列表中心.....";
 					$target_url = site_url("goods/index");
-					message($title, $content, $target_url, $delay_time = 30);
+					message($title, $content, $target_url, $delay_time = 3);
 				} else {
 					$title = "";
 					$content = "商品修改失败！即将自动进入商品列表中心.....";
 					$target_url = site_url("goods/index");
-					message($title, $content, $target_url, $delay_time = 50);
+					message($title, $content, $target_url, $delay_time = 5);
 				}
 		}
 	}
