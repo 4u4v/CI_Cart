@@ -35,7 +35,7 @@ class Goods extends CI_Controller {
 		$config['base_url'] = site_url('goods/index/');//分页链接
 		$config['total_rows'] = $this->goods_model->count_goods();
 		$config['per_page'] = 3;//每页显示条数
-		$config['use_page_numbers'] = TRUE;//显示的是当前页码
+		$config['use_page_numbers'] = FALSE;//显示的是当前页码
 		//自定义分页链接样式
 		$config['first_link']= '首页';
 		$config['last_link'] = '尾页';
@@ -90,7 +90,7 @@ class Goods extends CI_Controller {
 		$data['is_onsale'] = $this->input->post('is_onsale');
 
 		//完成上传图片
-		$config['upload_path'] = './upload/goods/';
+		$config['upload_path'] = '../upload/goods/';
 		$config['allowed_types'] = 'jpg|gif|png';
 		$config['max_size'] = 1024;
 		$this->load->library('upload',$config);//载入文件上传类
@@ -99,7 +99,7 @@ class Goods extends CI_Controller {
 			//上传成功，缩略处理
 			$res = $this->upload->data(); //获取上传图片信息
 			$data['goods_img'] = $res['file_name'];
-			$config_img['source_image'] = "./upload/goods/" . $res['file_name'];
+			$config_img['source_image'] = "../upload/goods/" . $res['file_name'];
 			$config_img['create_thumb'] = true;
 			$config_img['maintain_ratio'] = true;
 			$config_img['width'] = 160;
@@ -182,7 +182,7 @@ class Goods extends CI_Controller {
 				message($title, $content, $target_url, $delay_time = 3);
 			} else {
 			    #上传参数配置
-				$config['upload_path'] = './upload/goods/';
+				$config['upload_path'] = '../upload/goods/';
 				$config['allowed_types'] = 'gif|jpg|png';
 				$config['max_size'] = '1024';
 				$this->load->library('upload', $config);
