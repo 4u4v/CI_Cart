@@ -70,6 +70,14 @@ class Main extends CI_Controller {
 			}
 		}
 	}
+	
+	/*
+	 * 网站系统设置
+	 */
+	function sysconfig() {
+		$date['title'] = "网站系统设置";
+		$this->load->view('sysconfig', $data);
+	}
 }
 
 /* End of file home.php */
