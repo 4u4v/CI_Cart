@@ -1,5 +1,5 @@
-基于CI开发的购物车程序模块
-==========================
+基于CI框架开发的购物车程序模块
+==============================
 
 [ 介绍 ]
 
@@ -22,40 +22,40 @@
 
 [ 目录结构 ]
 
-CI_Cart
-├─admin
-│  ├─application
-│  │  ├─config
-│  │  ├─controllers
-│  │  ├─errors
-│  │  ├─helpers
-│  │  ├─hooks
-│  │  ├─language
-│  │  ├─libraries
-│  │  ├─models
-│  │  ├─plugins
-│  │  └─views
-│  │      ├─customer
-│  │      ├─product
-│  │      │  ├─attribute
-│  │      │  ├─attribute_set
-│  │      │  ├─brand
-│  │      │  ├─category
-│  │      │  └─product
-│  │      ├─sales
-│  │      │  └─order
-│  │      ├─system
-│  │      │  ├─admin_user
-│  │      │  ├─payment
-│  │      │  ├─role
-│  │      │  ├─shipping
-│  │      │  └─shipping_area
-│  │      └─widget
-│  ├─css
-│  ├─fck
-│  │  └─editor
-│  ├─images
-│  └─js
+CI_Cart 
+├─admin 
+│  ├─application 
+│  │  ├─config 
+│  │  ├─controllers 
+│  │  ├─errors 
+│  │  ├─helpers 
+│  │  ├─hooks 
+│  │  ├─language 
+│  │  ├─libraries 
+│  │  ├─models 
+│  │  ├─plugins 
+│  │  └─views 
+│  │      ├─customer 
+│  │      ├─product 
+│  │      │  ├─attribute 
+│  │      │  ├─attribute_set 
+│  │      │  ├─brand 
+│  │      │  ├─category 
+│  │      │  └─product 
+│  │      ├─sales 
+│  │      │  └─order 
+│  │      ├─system 
+│  │      │  ├─admin_user 
+│  │      │  ├─payment 
+│  │      │  ├─role 
+│  │      │  ├─shipping 
+│  │      │  └─shipping_area 
+│  │      └─widget 
+│  ├─css 
+│  ├─fck 
+│  │  └─editor 
+│  ├─images 
+│  └─js 
 ├─application
 │  ├─config
 │  ├─controllers
@@ -92,7 +92,7 @@ CI_Cart
 │  └─scaffolding
 │      ├─images
 │      └─views
-└─uploads
+└─uploads 
 
 [ 协议 ]
 
