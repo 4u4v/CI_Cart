@@ -27,31 +27,31 @@ define('DIR_WRITE_MODE', 0777);
 |
 */
 
-define('FOPEN_READ',							'rb');
+define('FOPEN_READ', 							'rb');
 define('FOPEN_READ_WRITE',						'r+b');
-define('FOPEN_WRITE_CREATE_DESTRUCTIVE',		'wb'); // truncates existing file data, use with care
-define('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE',	'w+b'); // truncates existing file data, use with care
-define('FOPEN_WRITE_CREATE',					'ab');
-define('FOPEN_READ_WRITE_CREATE',				'a+b');
-define('FOPEN_WRITE_CREATE_STRICT',				'xb');
+define('FOPEN_WRITE_CREATE_DESTRUCTIVE', 		'wb'); // truncates existing file data, use with care
+define('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE', 	'w+b'); // truncates existing file data, use with care
+define('FOPEN_WRITE_CREATE', 					'ab');
+define('FOPEN_READ_WRITE_CREATE', 				'a+b');
+define('FOPEN_WRITE_CREATE_STRICT', 			'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 
-/* ∂©µ•◊¥Ã¨ */
-define('OS_UNCONFIRMED',            1); // Œ¥»∑»œ
-define('OS_CONFIRMED',              2); // “—»∑»œ
-define('OS_PAID',                   3); // “—∏∂øÓ
-define('OS_CONFIRMED_PAID',         4); // »∑»œ∏∂øÓ
-define('OS_CONFIRMED_ARRIVED_PAID', 5); // »∑»œªıµΩ“—∏∂øÓ
-define('OS_DELIVERED',              6); // “—∑¢ªı
-define('OS_CONFIRMED_RECEIVED',     7); //  ’ªı≤¢»∑»œ
-define('OS_RECEIVED_PAID',          8); //  ’ªı≤¢∏∂øÓ
-define('OS_FINISHED',               9); // ∂©µ•ÕÍ≥…
-define('OS_CANCEL',                10); // “—»°œ˚
-define('OS_REFUND',                11); // “—ÕÀøÓ
-define('OS_RETURNED',              12); // “—ÕÀªı
+/* ËÆ¢ÂçïÁä∂ÊÄÅ */
+define('OS_UNCONFIRMED',            1); // Êú™Á°ÆËÆ§
+define('OS_CONFIRMED',              2); // Â∑≤Á°ÆËÆ§
+define('OS_PAID',                   3); // Â∑≤‰ªòÊ¨æ
+define('OS_CONFIRMED_PAID',         4); // Á°ÆËÆ§‰ªòÊ¨æ
+define('OS_CONFIRMED_ARRIVED_PAID', 5); // Á°ÆËÆ§Ë¥ßÂà∞Â∑≤‰ªòÊ¨æ
+define('OS_DELIVERED',              6); // Â∑≤ÂèëË¥ß
+define('OS_CONFIRMED_RECEIVED',     7); // Êî∂Ë¥ßÂπ∂Á°ÆËÆ§
+define('OS_RECEIVED_PAID',          8); // Êî∂Ë¥ßÂπ∂‰ªòÊ¨æ
+define('OS_FINISHED',               9); // ËÆ¢ÂçïÂÆåÊàê
+define('OS_CANCEL',                10); // Â∑≤ÂèñÊ∂à
+define('OS_REFUND',                11); // Â∑≤ÈÄÄÊ¨æ
+define('OS_RETURNED',              12); // Â∑≤ÈÄÄË¥ß
 
 
 
 /* End of file constants.php */
-/* Location: ./application/config/constants.php */
+/* Location: ./system/application/config/constants.php */

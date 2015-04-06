@@ -18,9 +18,9 @@
 |
 | These are the things you can load automatically:
 |
-| 1. Packages
-| 2. Libraries
-| 3. Helper files
+| 1. Libraries
+| 2. Helper files
+| 3. Plugins
 | 4. Custom config files
 | 5. Language files
 | 6. Models
@@ -29,30 +29,17 @@
 
 /*
 | -------------------------------------------------------------------
-|  Auto-load Packges
-| -------------------------------------------------------------------
-| Prototype:
-|
-|  $autoload['packages'] = array(APPPATH.'third_party', '/usr/local/shared');
-|
-*/
-
-$autoload['packages'] = array();
-
-
-/*
-| -------------------------------------------------------------------
 |  Auto-load Libraries
 | -------------------------------------------------------------------
 | These are the classes located in the system/libraries folder
-| or in your application/libraries folder.
+| or in your system/application/libraries folder.
 |
 | Prototype:
 |
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database');
+$autoload['libraries'] = array('database','fckeditor','session');
 
 
 /*
@@ -64,7 +51,19 @@ $autoload['libraries'] = array('database');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url');
+$autoload['helper'] = array('url','ps_helper');
+
+
+/*
+| -------------------------------------------------------------------
+|  Auto-load Plugins
+| -------------------------------------------------------------------
+| Prototype:
+|
+|	$autoload['plugin'] = array('captcha', 'js_calendar');
+*/
+
+$autoload['plugin'] = array();
 
 
 /*
@@ -91,7 +90,7 @@ $autoload['config'] = array();
 |
 |	$autoload['language'] = array('lang1', 'lang2');
 |
-| NOTE: Do not include the "_lang" part of your file.  For example
+| NOTE: Do not include the "_lang" part of your file.  For example 
 | "codeigniter_lang.php" would be referenced as array('codeigniter');
 |
 */
@@ -112,5 +111,6 @@ $autoload['language'] = array();
 $autoload['model'] = array();
 
 
+
 /* End of file autoload.php */
-/* Location: ./application/config/autoload.php */
+/* Location: ./system/application/config/autoload.php */

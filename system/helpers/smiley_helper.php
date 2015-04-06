@@ -2,11 +2,11 @@
 /**
  * CodeIgniter
  *
- * An open source application development framework for PHP 5.1.6 or newer
+ * An open source application development framework for PHP 4.3.2 or newer
  *
  * @package		CodeIgniter
  * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @copyright	Copyright (c) 2008 - 2009, EllisLab, Inc.
  * @license		http://codeigniter.com/user_guide/license.html
  * @link		http://codeigniter.com
  * @since		Version 1.0
@@ -40,12 +40,12 @@
  */
 if ( ! function_exists('smiley_js'))
 {
-	function smiley_js($alias = '', $field_id = '', $inline = TRUE)
+	function smiley_js($alias = '', $field_id = '')
 	{
 		static $do_setup = TRUE;
 
 		$r = '';
-
+	
 		if ($alias != '' && ! is_array($alias))
 		{
 			$alias = array($alias => $field_id);
@@ -54,32 +54,33 @@ if ( ! function_exists('smiley_js'))
 		if ($do_setup === TRUE)
 		{
 				$do_setup = FALSE;
-
+			
 				$m = array();
-
+			
 				if (is_array($alias))
 				{
-					foreach ($alias as $name => $id)
+					foreach($alias as $name => $id)
 					{
 						$m[] = '"'.$name.'" : "'.$id.'"';
 					}
 				}
-
+			
 				$m = '{'.implode(',', $m).'}';
-
+			
 				$r .= <<<EOF
+			
 				var smiley_map = {$m};
 
 				function insert_smiley(smiley, field_id) {
 					var el = document.getElementById(field_id), newStart;
-
+				
 					if ( ! el && smiley_map[field_id]) {
 						el = document.getElementById(smiley_map[field_id]);
-
+					
 						if ( ! el)
 							return false;
 					}
-
+				
 					el.focus();
 					smiley = " " + smiley;
 
@@ -92,7 +93,7 @@ if ( ! function_exists('smiley_js'))
 						el.setSelectionRange(newStart, newStart);
 					}
 					else if (document.selection) {
-						document.selection.createRange().text = smiley;
+						document.selection.createRange().text = text;
 					}
 				}
 EOF;
@@ -101,21 +102,14 @@ EOF;
 		{
 			if (is_array($alias))
 			{
-				foreach ($alias as $name => $id)
+				foreach($alias as $name => $id)
 				{
 					$r .= 'smiley_map["'.$name.'"] = "'.$id.'";'."\n";
 				}
 			}
 		}
 
-		if ($inline)
-		{
-			return '<script type="text/javascript" charset="utf-8">/*<![CDATA[ */'.$r.'// ]]></script>';
-		}
-		else
-		{
-			return $r;
-		}
+		return '<script type="text/javascript" charset="utf-8">'.$r.'</script>';
 	}
 }
 
@@ -124,8 +118,8 @@ EOF;
 /**
  * Get Clickable Smileys
  *
- * Returns an array of image tag links that can be clicked to be inserted
- * into a form field.
+ * Returns an array of image tag links that can be clicked to be inserted 
+ * into a form field.  
  *
  * @access	public
  * @param	string	the URL to the folder containing the smiley images
@@ -136,12 +130,12 @@ if ( ! function_exists('get_clickable_smileys'))
 	function get_clickable_smileys($image_url, $alias = '', $smileys = NULL)
 	{
 		// For backward compatibility with js_insert_smiley
-
+		
 		if (is_array($alias))
 		{
 			$smileys = $alias;
 		}
-
+		
 		if ( ! is_array($smileys))
 		{
 			if (FALSE === ($smileys = _get_smiley_array()))
@@ -152,7 +146,7 @@ if ( ! function_exists('get_clickable_smileys'))
 
 		// Add a trailing slash to the file path if needed
 		$image_url = rtrim($image_url, '/').'/';
-
+	
 		$used = array();
 		foreach ($smileys as $key => $val)
 		{
@@ -164,12 +158,12 @@ if ( ! function_exists('get_clickable_smileys'))
 			{
 				continue;
 			}
-
-			$link[] = "<a href=\"javascript:void(0);\" onclick=\"insert_smiley('".$key."', '".$alias."')\"><img src=\"".$image_url.$smileys[$key][0]."\" width=\"".$smileys[$key][1]."\" height=\"".$smileys[$key][2]."\" alt=\"".$smileys[$key][3]."\" style=\"border:0;\" /></a>";
-
+			
+			$link[] = "<a href=\"javascript:void(0);\" onClick=\"insert_smiley('".$key."', '".$alias."')\"><img src=\"".$image_url.$smileys[$key][0]."\" width=\"".$smileys[$key][1]."\" height=\"".$smileys[$key][2]."\" alt=\"".$smileys[$key][3]."\" style=\"border:0;\" /></a>";	
+	
 			$used[$smileys[$key][0]] = TRUE;
 		}
-
+	
 		return $link;
 	}
 }
@@ -229,21 +223,19 @@ if ( ! function_exists('_get_smiley_array'))
 {
 	function _get_smiley_array()
 	{
-		if (defined('ENVIRONMENT') AND file_exists(APPPATH.'config/'.ENVIRONMENT.'/smileys.php'))
+		if ( ! file_exists(APPPATH.'config/smileys'.EXT))
 		{
-		    include(APPPATH.'config/'.ENVIRONMENT.'/smileys.php');
-		}
-		elseif (file_exists(APPPATH.'config/smileys.php'))
-		{
-			include(APPPATH.'config/smileys.php');
-		}
-		
-		if (isset($smileys) AND is_array($smileys))
-		{
-			return $smileys;
+			return FALSE;
 		}
 
-		return FALSE;
+		include(APPPATH.'config/smileys'.EXT);
+
+		if ( ! isset($smileys) OR ! is_array($smileys))
+		{
+			return FALSE;
+		}
+
+		return $smileys;
 	}
 }
 

@@ -9,7 +9,7 @@
 | and its corresponding controller class/method. The segments in a
 | URL normally follow this pattern:
 |
-|	example.com/class/method/id/
+| 	example.com/class/method/id/
 |
 | In some instances, however, you may want to remap this relationship
 | so that a different class/function is called than the one
@@ -31,17 +31,18 @@
 | URI contains no data. In the above example, the "welcome" class
 | would be loaded.
 |
-|	$route['404_override'] = 'errors/page_missing';
+|	$route['scaffolding_trigger'] = 'scaffolding';
 |
-| This route will tell the Router what URI segments to use if those provided
-| in the URL cannot be matched to a valid route.
+| This route lets you set a "secret" word that will trigger the
+| scaffolding feature for added security. Note: Scaffolding must be
+| enabled in the controller in which you intend to use it.   The reserved 
+| routes must come before any wildcard or regular expression routes.
 |
 */
 
 $route['default_controller'] = "home";
-$route['404_override'] = '';
 $route['scaffolding_trigger'] = "";
 
 
 /* End of file routes.php */
-/* Location: ./application/config/routes.php */
+/* Location: ./system/application/config/routes.php */

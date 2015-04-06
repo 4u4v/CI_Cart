@@ -1,156 +1,249 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+/**
+ * 商品属性分组
+ *
+ *
+ */
+class Category extends Controller
+{
+	/**
+	 * 构造函数
+	 *
+	 * 登陆检验
+	 */	
+	function __construct()
+    {
+        parent::Controller(); 
+		if (!$this->session->userdata('logged_in')){          		
+			redirect('login');
+			exit();
+		}
+    }
+    
+	// --------------------------------------------------------------------
 
-class Category extends CI_Controller {
-	function __construct() {
-		parent::__construct();
-		$this->load->model('Check');//载入身份验证模型
-		$this->load->helper(array('form', 'url'));//表单和URL辅助函数
-		$this->load->library('form_validation');
-		$this->load->helper('redirect'); //自定义的跳转辅助函数
+    /**
+	 * 商品属性分组列表
+	 *
+	 *
+	 */	
+    function index()
+    {
+
+        // 父分类id
+        $parent_id = ($this->input->post('parent_id')) ? ($this->input->post('parent_id')) : 0;
+        
+        // ajax 请求
+		$search = $this->input->post('search');
+        
+		// 预处理父分类id
+		$segments = $this->uri->uri_to_assoc();
+        if ($search){
+			$segments['parent_id'] = $parent_id;
+		}else{
+			$segments['parent_id'] = !empty($segments['parent_id']) ? $segments['parent_id'] : 0;
+		}
+        
+		// 选中的父分类
+        $data['parent_selected'] = 0;
+		if (!empty($segments['parent_id'])){
+            $data['parent_selected'] = (int)$segments['parent_id'];     
+        }
+        
+		// 不是叶分类的所有分类结果集
 		$this->load->model('category_model');
+		$data['category_not_leaf'] = $this->category_model->find_not_leaf();
+		
+		// ajax 
+		if ($search){
+			$data['categorys'] = array();
+			$data['categorys'] = $this->category_model->find_sub_cats($segments['parent_id']);
+			$this->load->view('product/category/ajax_list',$data);
+
+		// 非 ajax 
+		}else{
+			$this->load->view('product/category/list',$data);		    
+		}
+
+
+        
+    }
+    
+	// --------------------------------------------------------------------
+
+    /**
+	 * 添加新分类
+	 *
+	 *
+	 */	  
+	function add()
+    {
+        $this->edit();
+    }
+    
+
+	// --------------------------------------------------------------------
+
+    /**
+	 * 编辑分类
+	 *
+	 *
+	 */	  
+	function edit()
+    {
+		// 检验操作权限
+		if (!admin_priv('cat_manage')){
+			return show_message2('你没有此项操作的权限!', 'category');
+		} 
+        
+		$params = $this->uri->uri_to_assoc();
+        if (!empty($params['id']) && $params['id'] > 0){
+            $id = $params['id'];
+            $this->load->model('category_model');
+            $data['editing'] = $this->category_model->load($id);
+            if (!$data['editing']){
+                return show_message2('无效ID:'.$id, 'category');
+            }
+			$data['header_text'] = '编辑分类(ID:'.$data['editing']['id'].')';
+        } else {
+			$cat_choose = array(0);
+			if (!empty($_COOKIE['PS']['cat_choose'])){
+				$cat_choose = explode('|', $_COOKIE['PS']['cat_choose']);
+			}
+            $data['editing'] = array(
+                'id' => null,
+                'parent_id' => $cat_choose[0],
+				'name' => null,
+				'sort_order' => 0
+            );
+			$data['header_text'] = '添加分类';
+        }
+        
+		// 分类结果集，用于选择父分类
+		$this->load->model('category_model');
+		$data['categorys'] = $this->category_model->find_all_categorys();
+
+		$this->load->view('product/category/edit',$data);
+	}
+    
+
+	// --------------------------------------------------------------------
+
+    /**
+	 * 提交数据
+	 *
+	 *
+	 */	  
+	function save()
+    {		
+		// 保存后并继续编辑信号
+		$re_edit = $this->input->post('re_edit');
+
+        // 商品属性id
+        $id = $this->input->post('id');
+
+		// 接收客户端提交数据
+        $name = $this->input->post('name');
+		$parent_id = $this->input->post('parent_id');
+        $sort_order = $this->input->post('sort_order');
+        
+        // 加载表单验证类
+        $this->load->library('validation');
+
+		// 设置表单数据规则
+        $this->set_save_form_rules();
+
+        // 将上次选择的父分类保存到cookie，做下次选择父分类的默认项
+		setcookie('PS[cat_choose]', $parent_id , gmtime()+86400);
+        
+		// 如果提交数据符合所设置的规则，则继续运行
+		if (TRUE == $this->validation->run()){
+            
+			//把数据提交给模型
+            $this->load->model('category_model');            
+            $this->category_model->name = $name;
+			$this->category_model->parent_id  = $parent_id;
+			$this->category_model->sort_order = $sort_order;
+            
+            // 更新分类
+            if ($id){
+			    $this->load->model('category_model');
+                
+				// 该分类的属下分类id和该分类id
+			    $sub_cat = $this->category_model->find_sub_cats($id);
+			    $sub_cat_ids = array();
+			    foreach($sub_cat as $key => $value):
+                    $sub_cat_ids[] = $value['id'];
+			    endforeach;
+				$sub_cat_ids[] = $id;
+                
+				// 所选分类不能是当前分类或者当前分类的下级分类
+				if (in_array($parent_id,$sub_cat_ids)){
+                     echo -1;
+                    //show_message2('所选分类不能是当前分类或者当前分类的下级分类!', 'category/edit/id/'.$id);
+				}else{
+					$this->category_model->update($id);
+					// 更新子分类
+					$this->category_model->update_child($id);
+					if ($re_edit){ 
+						echo $id;
+					   //	show_message2('"分类(ID:'.$id.')" 已保存!', 'category/edit/id/'.$id);
+					}else{
+						echo '更新成功';
+						//show_message2('保存成功!', 'category');
+					}
+				}
+
+            // 添加新分类
+            } else {
+               $this->category_model->create();
+			   if($re_edit){ 
+			       $newly_one = $this->category_model->_get_newly_one();
+				   echo $newly_one['id'];
+                   //show_message2('"分类(ID:'.$newly_one['id'].')" 已保存!', 'category/edit/id/'.$newly_one['id']);
+			   }else{
+				   echo '保存成功!';
+                  // show_message2('保存成功!', 'category');
+			   }
+            }
+
+		// 对提交的数据不符合表单验证规则情况的处理
+		}else{
+          //
+		}
 	}
 
-	/*
-	 * 默认分类列表首页
-	 */
-	public function index()
-	{
-		$data['title'] = "商品分类列表";
-		//调用模型中category_list方法得到数据
-		$data['cates']=$this->category_model->category_list();
-		//加载到视图文件
-		$this->load->view('category', $data);
-	}
-	
-	// 显示添加表单
-	public function add(){
-		$data['title'] = "添加商品分类";
-		$data['cates'] = $this->category_model->category_list();
-		$this->load->view('cat_add', $data);
-	}
-	/*
-	 * 完成分类的添加
-	 */
-	function insert(){
-		//设置验证规则
-		$this->form_validation->set_rules('cat_name','分类名称','trim|required');
-		if ($this->form_validation->run() == false) {
-			//未通过验证
-			$title = "未通过表单验证";
-			$content = validation_errors();
-			$target_url = site_url("category/add");;
-			message($title, $content, $target_url, $delay_time = 3);
-		} else {
-			$data['cat_name'] = $this->input->post('cat_name',true);
-			$data['parent_id'] = $this->input->post('parent_id');
-			$data['unit'] = $this->input->post('unit',true);
-			$data['sort_order'] = $this->input->post('sort_order',true);
-			$data['cat_desc'] = $this->input->post('cat_desc',true);
-			$data['is_show'] = $this->input->post('is_show');
-			//var_dump($data);
-		if($this->category_model->add_category($data)){
-			$title = "分类添加成功";
-			$content = "分类添加成功！即将自动进入分类列表中心.....";
-			$target_url = site_url("category/index");
-			message($title, $content, $target_url, $delay_time = 3);
-		} else {
-			$title = "分类添加失败";
-			$content = "抱歉~，您输入的内容有误或不完整！即将自动返回分类添加页面.....";
-			$target_url = site_url("category/add");;
-			message($title, $content, $target_url, $delay_time = 3);
-		}
-	  }
-	}
-	
-	//显示编辑表单
-	public function edit($cat_id){
-		#获取所有的分类信息
-		$data['cates'] = $this->category_model->category_list();
-		#获取当前这条记录的信息
-		//获取cat_id
-		$data['current_cat'] = $this->category_model->get_cate($cat_id);
-		$this->load->view('cat_edit', $data);
-	}
-	
-	/*
-	 * 更新数据
-	 */
-	function update(){
-		$cat_id=$this->input->post('cat_id');
-		//获取该cat_id 分类下的所有后代分类
-		$sub_cate = $this->category_model->category_list('$cat_id');
-		//获取这些后代分类的cat_id
-		$sub_ids = array();
-		foreach ($sub_cate as $v){
-			$sub_ids[] = $v['cat_id'];
-		}
-		$parent_id = $this->input->post('parent_id');
-		//判断所选的父分类是否为当前分类或其后代分类
-		if ($parent_id==$cat_id || in_array($parent_id, $sub_ids))
-		{
-			$title = "操作有误";
-			$content = "不能将分类放置到当前分类或其子分类！";
-			$target_url = site_url("category/edit") . '/'.$cat_id;
-			message($title, $content, $target_url, $delay_time = 3);
-		} else {
-			//更新操作
-			$this->form_validation->set_rules('cat_name','分类名称','trim|required');
-			if ($this->form_validation->run() == false) {
-				//未通过表单验证
-				$title = "未通过表单验证";
-				$content = validation_errors();
-				$target_url = site_url("category/edit");;
-				message($title, $content, $target_url, $delay_time = 3);
-			} else {
-			    //通过表单验证时
-				$data['cat_name'] = $this->input->post('cat_name',true);
-				$data['parent_id'] = $this->input->post('parent_id');
-				$data['unit'] = $this->input->post('unit',true);
-				$data['sort_order'] = $this->input->post('sort_order',true);
-				$data['cat_desc'] = $this->input->post('cat_desc',true);
-				$data['is_show'] = $this->input->post('is_show');
-				if($this->category_model->update_category($data,$cat_id))
-				{
-					$title = "";
-					$content = "分类修改成功！即将自动进入分类列表中心.....";
-					$target_url = site_url("category/index");
-					message($title, $content, $target_url, $delay_time = 2);
-				} else {
-					$title = "";
-					$content = "修改分类失败！即将自动进入分类列表中心.....";
-					$target_url = site_url("category/index");
-					message($title, $content, $target_url, $delay_time = 2);
-				}
+	function delete()
+    {
+		if (!admin_priv('cat_delete')){
+			return show_message2('你没有此项操作的权限!', 'category');
+		} 
+		$params = $this->uri->uri_to_assoc();
+        if (isset($params['id']) && ($id = $params['id']) > 0){
+            $this->load->model('category_model');
+            $cat = $this->category_model->load($id);
+			$this->load->model('product_model');
+            $product = $this->product_model->check_product_by_cat($id);
+			if(!$cat['is_leaf'] || !empty($product['id'])){
+		        //echo -1;
+                 show_message2($cat['name'].' 不是末级分类或者此分类下还存在有商品,您不能删除!','category');
 			}
-		}
+            else if ($this->category_model->delete($id)){
+				//echo $id;
+                show_message2('"分类(ID:'.$id.')" 已被删除!', 'category');
+            } else {
+				//return false;
+                return show_message2('无效ID:'.$id, 'category');
+            }
+        }
+
 	}
-	
-	/*
-	 * 删除记录
-	 */
-	function delete(){
-		$cat_id = $this->uri->segment(3);
-		//如果不是底层分类,则不允许删除
-		$sub_cates = $this->category_model->category_list($cat_id);
-		if (empty($sub_cates)) {
-			if ($this->category_model->delete_cate($cat_id)){
-				$title = "分类删除成功";
-				$content = "分类删除成功！即将自动进入分类列表中心.....";
-				$target_url = site_url("category/index");
-				message($title, $content, $target_url, $delay_time = 2);
-			} else {
-				$title = "分类删除失败";
-				$content = "分类删除失败！即将自动进入分类列表中心.....";
-				$target_url = site_url("category/index");
-				message($title, $content, $target_url, $delay_time = 2);
-			}
-		} else {
-			$title = "操作有误";
-			$content = "该分类下面还包含其他分类，先删除其子分类！即将自动进入分类列表中心.....";
-			$target_url = site_url("category/index");
-			message($title, $content, $target_url, $delay_time = 5);
-		}
+
+	function set_save_form_rules()
+    {
+        $rules['name'] = 'trim|required';
+		$this->validation->set_rules($rules);
 		
-	}
-	
+    }
+
 }

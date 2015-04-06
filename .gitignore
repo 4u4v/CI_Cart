@@ -4,3 +4,5 @@ cache
 */cache/!index.html
 /.buildpath
 /.settings
+logs
+/cache
