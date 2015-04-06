@@ -22,77 +22,77 @@
 
 [ 目录结构 ]
 
-CI_Cart 
-├─admin 
-│  ├─application 
-│  │  ├─config 
-│  │  ├─controllers 
-│  │  ├─errors 
-│  │  ├─helpers 
-│  │  ├─hooks 
-│  │  ├─language 
-│  │  ├─libraries 
-│  │  ├─models 
-│  │  ├─plugins 
-│  │  └─views 
-│  │      ├─customer 
-│  │      ├─product 
-│  │      │  ├─attribute 
-│  │      │  ├─attribute_set 
-│  │      │  ├─brand 
-│  │      │  ├─category 
-│  │      │  └─product 
-│  │      ├─sales 
-│  │      │  └─order 
-│  │      ├─system 
-│  │      │  ├─admin_user 
-│  │      │  ├─payment 
-│  │      │  ├─role 
-│  │      │  ├─shipping 
-│  │      │  └─shipping_area 
-│  │      └─widget 
-│  ├─css 
-│  ├─fck 
-│  │  └─editor 
-│  ├─images 
-│  └─js 
-├─application
-│  ├─config
-│  ├─controllers
-│  │  └─customer
-│  ├─errors
-│  ├─helpers
-│  ├─hooks
-│  ├─language
-│  ├─libraries
-│  │  ├─payment
-│  │  └─shipping
-│  ├─models
-│  └─views
-│      ├─brand
-│      ├─category
-│      ├─customer
-│      ├─order
-│      ├─product
-│      └─widget
-├─cache
-├─css
-├─images
-├─js
-├─logs
-├─system
-│  ├─codeigniter
-│  ├─database
-│  │  └─drivers
-│  ├─fonts
-│  ├─helpers
-│  ├─language
-│  ├─libraries
-│  ├─plugins
-│  └─scaffolding
-│      ├─images
-│      └─views
-└─uploads 
+    CI_Cart 
+    ├─admin 
+    │  ├─application 
+    │  │  ├─config 
+    │  │  ├─controllers 
+    │  │  ├─errors 
+    │  │  ├─helpers 
+    │  │  ├─hooks 
+    │  │  ├─language 
+    │  │  ├─libraries 
+    │  │  ├─models 
+    │  │  ├─plugins 
+    │  │  └─views 
+    │  │      ├─customer 
+    │  │      ├─product 
+    │  │      │  ├─attribute 
+    │  │      │  ├─attribute_set 
+    │  │      │  ├─brand 
+    │  │      │  ├─category 
+    │  │      │  └─product 
+    │  │      ├─sales 
+    │  │      │  └─order 
+    │  │      ├─system 
+    │  │      │  ├─admin_user 
+    │  │      │  ├─payment 
+    │  │      │  ├─role 
+    │  │      │  ├─shipping 
+    │  │      │  └─shipping_area 
+    │  │      └─widget 
+    │  ├─css 
+    │  ├─fck 
+    │  │  └─editor 
+    │  ├─images 
+    │  └─js 
+    ├─application
+    │  ├─config
+    │  ├─controllers
+    │  │  └─customer
+    │  ├─errors
+    │  ├─helpers
+    │  ├─hooks
+    │  ├─language
+    │  ├─libraries
+    │  │  ├─payment
+    │  │  └─shipping
+    │  ├─models
+    │  └─views
+    │      ├─brand
+    │      ├─category
+    │      ├─customer
+    │      ├─order
+    │      ├─product
+    │      └─widget
+    ├─cache
+    ├─css
+    ├─images
+    ├─js
+    ├─logs
+    ├─system
+    │  ├─codeigniter
+    │  ├─database
+    │  │  └─drivers
+    │  ├─fonts
+    │  ├─helpers
+    │  ├─language
+    │  ├─libraries
+    │  ├─plugins
+    │  └─scaffolding
+    │      ├─images
+    │      └─views
+    └─uploads 
 
 [ 协议 ]
 
